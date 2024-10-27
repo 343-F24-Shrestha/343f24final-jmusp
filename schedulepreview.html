@@ -1,36 +1,79 @@
-<!-- Schedule preview page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Bootstrap Page</title>
+  <title>JMU Schedule Planner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/schedulepreview_style.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#">Navbar</a>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="index.html">
+      <img src="img/JMULogo.png" alt="JMU Logo" style="width: 100px" class="me-2">
+      Schedule Planner
+    </a>
+    <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white active" href="#">Schedule Preview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="welcome.html">Welcome</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light" href="signin.html">Sign In</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container mt-4">
-    <h1 class="display-4">Lorem Ipsum</h1>
-    <p class="lead">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-    </p>
-    <p>
-      Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
-    </p>
-    <p>
-      Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-    </p>
-    <p>
-      Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.
-    </p>
   </div>
+</nav>
 
+<!-- Main Content -->
+<div class="container mt-4">
+  <h1 class="display-5 text-center mb-4">Current Schedule</h1>
+  <div class="table-responsive">
+    <table class="table table-bordered schedule-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Time Slots from 8 AM to 6 PM -->
+        <tr><td>8:00 AM</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9:00 AM</td><td>CLS101</td><td></td><td>CLS101</td><td></td><td>CLS101</td></tr>
+        <tr><td>10:00 AM</td><td></td><td>CLS201</td><td></td><td>CLS201</td><td></td></tr>
+        <tr><td>11:00 AM</td><td>CLS102</td><td></td><td>CLS102</td><td></td><td>CLS102</td></tr>
+        <tr><td>12:00 PM</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>1:00 PM</td><td></td><td>CLS301</td><td></td><td>CLS301</td><td></td></tr>
+        <tr><td>2:00 PM</td><td>CLS103</td><td></td><td>CLS103</td><td></td><td>CLS103</td></tr>
+        <tr><td>3:00 PM</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4:00 PM</td><td>CLS104</td><td>CLS202</td><td>CLS104</td><td>CLS202</td><td>CLS104</td></tr>
+        <tr><td>5:00 PM</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6:00 PM</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

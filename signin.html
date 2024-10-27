@@ -1,1 +1,42 @@
-<!-- Sign in page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/signin_style.css">
+</head>
+<body class="bg-light">
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-sm" style="width: 360px;">
+      <div class="text-center mb-4">
+        <img src="img/JMULogo.png" alt="JMU Logo" class="mb-3" style="width: 150px;">
+        <h5 class="mb-3">Sign in</h5>
+        <p class="text-muted">with JMU Schedule Planner account</p>
+      </div>
+      <form action="index.html" method="get">
+        <div class="form-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="text-end mb-3">
+          <a href="#" class="small text-primary">Forgot email?</a>
+        </div>
+        <div class="form-group mb-4">
+          <input type="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="text-end mb-4">
+          <a href="#" class="small text-primary">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+      </form>
+      <div class="text-center mt-4">
+        <p class="small">Note: This is merely static a demo page and not functional.</p>
+      </div>
+      <div class="text-center mt-3">
+        <a href="#" class="text-primary">Don't have an account?</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
