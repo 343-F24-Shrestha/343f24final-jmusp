@@ -1,10 +1,82 @@
-<!-- Welcome page - Prince -->
- <!DOCTYPE html>
- <html lang="en">
-    <head>
+<!DOCTYPE html>
+<html lang="en">
 
-    </head>
-    <body>
-        <p>"Prince Was here"</p>
-    </body>
- </html>
+<head>
+    <title>JMU Schedule Planner: Welcome</title>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Use the JMU Schedule Planner to seamlessly create the ideal schedule to fit your needs.">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/welcome.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/jmu-wordmark-white.png" alt="JMU icon" class="navbar-icon">
+            </a>
+            <span class="navbar-text mx-auto">JMU SCHEDULE PLANNER</span>
+
+            <!-- PLACEHOLDER Navbar links for Home, Schedule Preview, and Help -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Schedule Preview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active">Help</a>
+                </li>
+            </ul>
+
+            <!-- Sign-in button -->
+            <a href="signin.html" class="btn btn-outline-light ms-auto">Sign in</a>
+        </div>
+    </nav>
+
+    <main class="shell">
+        <section class="intro">
+            <div class="intro-content">
+                <header class="intro_head">
+                    <h1>Seamless, smooth, and easy to use schedule planning</h1>
+                </header>
+                <p class="intro-text">Get more done, faster. Build your ideal schedule to fit your student needs</p>
+                <article class="intro_body">
+                    <aside class="signup-preview">
+                        <input type="text" placeholder="Enter your information" class="info-input">
+                        <button class="get-started-btn" type="button" onclick="window.location.href='signin.html'">Get
+                            Started</button>
+                    </aside>
+                    <div class="google-signup">
+                        <img src="images/Logo-google-icon-PNG.png" alt="Google Icon" class="google-icon">
+                        <button class="google-btn" type="button">Or sign up with Google</button>
+                    </div>
+                </article>
+            </div>
+            <img src="https://placehold.co/600x400/EEE/31343C" alt="Placeholder Image" class="intro-image">
+        </section>
+    </main>
+
+    <section class="more-info">
+        <div class="more-info-content">
+            <h2 class="more-info-header"><strong>Why Choose Our Planner?</strong></h2>
+            <div class="more-info-inner">
+                <img src="https://placehold.co/600x400/EEE/31343C" alt="Placeholder Image" class="more-info-image">
+                <div class="more-info-text">
+                    <ul class="benefits-list">
+                        <li>Easy to navigate interface</li>
+                        <li>Customizable schedule options</li>
+                        <li>Real-time updates</li>
+                        <li>Access from any device</li>
+                    </ul>
+                    <button class="create-account-btn" type="button" onclick="window.location.href='signin.html'">Create
+                        Free Account</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
