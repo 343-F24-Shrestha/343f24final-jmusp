@@ -1296,18 +1296,6 @@ const classData = [
         ]
     },
     {
-        "course": "HIST 308",
-        "title": "Contemporary Italian History and Culture",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "Tu",
-                "times": "12:00AM - 12:00AM",
-                "instructor": "Online"
-            }
-        ]
-    },
-    {
         "course": "HIST 316",
         "title": "The Life and Times of James Madison, 1751-1836",
         "sections": [
@@ -2624,12 +2612,6 @@ const classData = [
                 "days": "TBA",
                 "times": "TBA",
                 "instructor": "Alisabeth Gheen"
-            },
-            {
-                "section": "7201-LEC",
-                "days": "MoWe",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Health & Behavioral St 3032"
             }
         ]
     },
@@ -3314,48 +3296,6 @@ const classData = [
                 "days": "MoWeFr",
                 "times": "11:30AM - 12:20PM",
                 "instructor": "Thomas Martin"
-            }
-        ]
-    },
-    {
-        "course": "ENG 235",
-        "title": "Survey of English Literature: From Beowulf to the Eighteenth Century [C2L]",
-        "sections": [
-            {
-                "section": "0002-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0003-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0004-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0005-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0006-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0007-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Health & Behavioral St G010"
             }
         ]
     },
