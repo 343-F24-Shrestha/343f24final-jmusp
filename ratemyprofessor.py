@@ -1,6 +1,6 @@
 # Not currently used - example of how we can implement searching professor ratings.
 # We'll need a server or something to actually make it work; there may be an easier solution.
-
+# to run you need to: python -m pip install RateMyProfessorAPI 
 import ratemyprofessor
 
 profName = input("Enter professor name: ")

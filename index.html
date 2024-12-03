@@ -64,11 +64,15 @@
                 <table class="table table-bordered schedule-table">
                     <thead>
                         <tr>
-                            <th>Selected Class</th>
+                            <th>Course</th>
+                            <th>Section</th>
+                            <th>Days</th>
+                            <th>Times</th>
+                            <th>Instructor</th>
                         </tr>
                     </thead>
                     <tbody id="schedule-table-body">
-                        <!-- Existing schedule rows -->
+                        <!-- Schedule rows will be inserted here -->
                     </tbody>
                 </table>
             </div>
@@ -102,95 +106,198 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="classes.js"></script> <!-- Include the JS file with class data -->
         <script>
-          document.addEventListener('DOMContentLoaded', () => {
-              // Add the first dropdown on page load
-              addDropdown();
-          });
-      
-          // Set to track already selected courses
-          const selectedCoursesSet = new Set();
-      
-          function addDropdown() {
-              const dropdownContainer = document.getElementById('dropdown-container');
-      
-              // Create form group for dropdown
-              const formGroup = document.createElement('div');
-              formGroup.classList.add('form-group');
-      
-              const label = document.createElement('label');
-              label.textContent = `Class ${dropdownContainer.children.length + 1}`;
-              label.classList.add('form-label');
-      
-              const select = document.createElement('select');
-              select.classList.add('form-select');
-      
-              // Add default "Select a class" option
-              const defaultOption = document.createElement('option');
-              defaultOption.value = '';
-              defaultOption.textContent = 'Select a class';
-              select.appendChild(defaultOption);
-      
-              // Populate dropdown options with course-level data
-              classData.forEach(course => {
-                  const option = document.createElement('option');
-                  option.value = course.course; // Store course code as value
-                  option.textContent = `${course.course}: ${course.title}`;
-                  select.appendChild(option);
-              });
-      
-              // Event listener to add a new dropdown when a class is selected
-              select.addEventListener('change', () => {
-                  if (select.value && !selectedCoursesSet.has(select.value)) {
-                      selectedCoursesSet.add(select.value); // Add to selected courses set
-                      select.dataset.populated = true; // Mark this dropdown as populated
-                      addDropdown(); // Add a new dropdown
-                  } else if (selectedCoursesSet.has(select.value)) {
-                      alert('You have already selected this course.');
-                      select.value = ''; // Reset the dropdown value
-                  }
-              });
-      
-              // Append label and dropdown to the form group
-              formGroup.appendChild(label);
-              formGroup.appendChild(select);
-      
-              // Append form group to the container
-              dropdownContainer.appendChild(formGroup);
-          }
-      
-          document.getElementById('classForm').addEventListener('submit', function (e) {
-              e.preventDefault();
-      
-              // Get selected values
-              const selectedClasses = [];
-              const selects = document.querySelectorAll('#dropdown-container select');
-              selects.forEach(select => {
-                  if (select.value) {
-                      selectedClasses.push(select.value);
-                  }
-              });
-      
-              // Save selected classes to localStorage
-              localStorage.setItem('schedule', JSON.stringify(selectedClasses));
-      
-              // Close the modal
-              const modalElement = document.getElementById('classModal');
-              const modal = bootstrap.Modal.getInstance(modalElement);
-              modal.hide();
-      
-              // Update the schedule table
-              updateScheduleTable();
-          });
-      
-          function updateScheduleTable() {
-              const classes = JSON.parse(localStorage.getItem('schedule')) || [];
-              const tableBody = document.getElementById('schedule-table-body');
-              tableBody.innerHTML = '';
-              classes.forEach(cls => {
-                  const row = `<tr><td>${cls}</td></tr>`;
-                  tableBody.insertAdjacentHTML('beforeend', row);
-              });
-          }
-      </script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Add the first dropdown on page load
+                addDropdown();
+                // Load existing schedule if available
+                updateScheduleTable();
+            });
+
+            // Set to track already selected courses
+            const selectedCoursesSet = new Set();
+
+            function addDropdown() {
+                const dropdownContainer = document.getElementById('dropdown-container');
+
+                // Create form group for dropdown
+                const formGroup = document.createElement('div');
+                formGroup.classList.add('form-group');
+
+                const label = document.createElement('label');
+                label.textContent = `Class ${dropdownContainer.children.length + 1}`;
+                label.classList.add('form-label');
+
+                const select = document.createElement('select');
+                select.classList.add('form-select');
+
+                // Add default "Select a class" option
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Select a class';
+                select.appendChild(defaultOption);
+
+                // Populate dropdown options with course-level data
+                classData.forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course.course; // Store course code as value
+                    option.textContent = `${course.course}: ${course.title}`;
+                    select.appendChild(option);
+                });
+
+                // Event listener for dropdown changes
+                select.addEventListener('change', () => {
+                    const previousValue = select.dataset.previousValue || '';
+                    const currentValue = select.value;
+
+                    if (previousValue) {
+                        // Remove the previous value from the selected set
+                        selectedCoursesSet.delete(previousValue);
+                    }
+
+                    if (currentValue) {
+                        // Check if the new value is already in the set
+                        if (selectedCoursesSet.has(currentValue)) {
+                            alert('You have already selected this course.');
+                            select.value = ''; // Reset the dropdown value
+                        } else {
+                            // Add the new value to the set
+                            selectedCoursesSet.add(currentValue);
+                            select.dataset.previousValue = currentValue; // Update the stored value
+                            addDropdown(); // Add a new dropdown
+                        }
+                    } else {
+                        // Clear the previous value if no course is selected
+                        select.dataset.previousValue = '';
+                    }
+                });
+
+                // Append label and dropdown to the form group
+                formGroup.appendChild(label);
+                formGroup.appendChild(select);
+
+                // Append form group to the container
+                dropdownContainer.appendChild(formGroup);
+            }
+
+            document.getElementById('classForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get selected courses
+                const selectedCourses = [];
+                const selects = document.querySelectorAll('#dropdown-container select');
+                selects.forEach(select => {
+                    if (select.value) {
+                        selectedCourses.push(select.value);
+                    }
+                });
+
+                // Generate schedule
+                const schedule = generateSchedule(selectedCourses);
+
+                if (schedule) {
+                    // Save selected schedule to localStorage
+                    localStorage.setItem('schedule', JSON.stringify(schedule));
+
+                    // Close the modal
+                    const modalElement = document.getElementById('classModal');
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    modal.hide();
+
+                    // Update the schedule table
+                    updateScheduleTable();
+                } else {
+                    alert('No valid schedule found for the selected courses.');
+                }
+            });
+
+            function updateScheduleTable() {
+                const schedule = JSON.parse(localStorage.getItem('schedule'));
+                const tableBody = document.getElementById('schedule-table-body');
+                tableBody.innerHTML = '';
+
+                if (schedule) {
+                    schedule.forEach(entry => {
+                        const row = `
+                            <tr>
+                                <td>${entry.course}</td>
+                                <td>${entry.section.section}</td>
+                                <td>${entry.section.days}</td>
+                                <td>${entry.section.times}</td>
+                                <td>${entry.section.instructor}</td>
+                            </tr>
+                        `;
+                        tableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                }
+            }
+
+            function generateSchedule(selectedCourses) {
+                const schedules = [];
+                const courseSections = selectedCourses.map(courseCode => {
+                    return classData.find(course => course.course === courseCode);
+                });
+
+                function recurse(index, currentSchedule) {
+                    if (index === courseSections.length) {
+                        schedules.push([...currentSchedule]);
+                        return true; // Found at least one valid schedule
+                    }
+
+                    const course = courseSections[index];
+                    for (const section of course.sections) {
+                        if (!hasConflict(currentSchedule, section)) {
+                            currentSchedule.push({ course: course.course, section: section });
+                            if (recurse(index + 1, currentSchedule)) {
+                                return true; // Stop after finding one valid schedule
+                            }
+                            currentSchedule.pop();
+                        }
+                    }
+                    return false; // No valid section found for this course
+                }
+
+                const success = recurse(0, []);
+                return success ? schedules[0] : null;
+            }
+
+            function hasConflict(schedule, newSection) {
+                for (const entry of schedule) {
+                    if (sectionsOverlap(entry.section, newSection)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function sectionsOverlap(section1, section2) {
+                const daysOverlap = section1.days.split('').some(day => section2.days.includes(day));
+                if (!daysOverlap) return false;
+
+                const [start1, end1] = parseTime(section1.times);
+                const [start2, end2] = parseTime(section2.times);
+
+                return (start1 < end2 && start2 < end1);
+            }
+
+            function parseTime(timeRange) {
+                // Example input: "9:10AM - 10:00AM"
+                const [startTime, endTime] = timeRange.split(' - ');
+                return [convertToMinutes(startTime), convertToMinutes(endTime)];
+            }
+
+            function convertToMinutes(timeStr) {
+                // Convert "9:10AM" to minutes since 0:00
+                let [time, modifier] = timeStr.split(/(AM|PM)/);
+                let [hours, minutes] = time.split(':').map(Number);
+
+                if (modifier === 'PM' && hours !== 12) {
+                    hours += 12;
+                }
+                if (modifier === 'AM' && hours === 12) {
+                    hours = 0;
+                }
+                return hours * 60 + minutes;
+            }
+        </script>
     </body>
 </html>
