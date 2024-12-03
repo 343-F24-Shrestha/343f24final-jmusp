@@ -1,303 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Main Home Page</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description"
-        content="Use the JMU Schedule Planner to seamlessly create the ideal schedule to fit your needs.">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <style>
-            /* Styling for the header */
-            header {
-                height: 10vh;
-                background-color: #450084;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 2rem;
-                font-family: Arial, sans-serif;
-                box-shadow: 0 4px 2px -2px gray;
-            }
+<head>
+    <title>Main Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+    content="Use the JMU Schedule Planner to seamlessly create the ideal schedule to fit your needs.">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /* Styling for the header */
+        header {
+            height: 10vh;
+            background-color: #450084;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 2px -2px gray;
+        }
 
-            .form-group {
-                margin-bottom: 1rem;
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand text-white" href="index.html">
-                    <img src="img/JMULogo.png" alt="JMU Logo" style="width: 100px" class="me-2">
-                    Schedule Planner
-                </a>
-                <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="bi bi-list"></i>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" href="schedulepreview.html">Schedule Preview</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" href="help.html">Help</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" href="welcome.html">Welcome</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-light" href="signin.html">Sign In</a>
-                        </li>
-                    </ul>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        /* Styling for notes in the schedule table */
+        .outside-time-note {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="index.html">
+                <img src="img/JMULogo.png" alt="JMU Logo" style="width: 100px" class="me-2">
+                Schedule Planner
+            </a>
+            <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="schedulepreview.html">Schedule Preview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="help.html">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="welcome.html">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="signin.html">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>  
+    <div class="container mt-4">
+        <h1 class="display-5 text-center mb-4">Hello, Username!</h1>
+        <h2 class="display-5 text-center mb-4">Current Schedule</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered schedule-table">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Section</th>
+                        <th>Days</th>
+                        <th>Times</th>
+                        <th>Instructor</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-table-body">
+                    <!-- Schedule rows will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Set Requirements Button -->
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classModal">Set Requirements</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="classModal" tabindex="-1" aria-labelledby="classModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="classModalLabel">Select Classes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="classForm">
+                        <!-- Dropdowns for selecting classes -->
+                        <div id="dropdown-container">
+                            <!-- JavaScript will populate dropdowns dynamically here -->
+                        </div>
+                        <!-- Time Preferences -->
+                        <div class="form-group">
+                            <label for="startTime" class="form-label">Preferred Start Time (e.g., 8:00AM)</label>
+                            <input type="text" id="startTime" class="form-control" placeholder="Start Time">
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime" class="form-label">Preferred End Time (e.g., 6:00PM)</label>
+                            <input type="text" id="endTime" class="form-control" placeholder="End Time">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
                 </div>
             </div>
-        </nav>  
-        <div class="container mt-4">
-            <h1 class="display-5 text-center mb-4">Hello, Username!</h1>
-            <h2 class="display-5 text-center mb-4">Current Schedule</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Course</th>
-                            <th>Section</th>
-                            <th>Days</th>
-                            <th>Times</th>
-                            <th>Instructor</th>
-                        </tr>
-                    </thead>
-                    <tbody id="schedule-table-body">
-                        <!-- Schedule rows will be inserted here -->
-                    </tbody>
-                </table>
-            </div>
         </div>
-        <!-- Set Requirements Button -->
-        <div class="text-center mt-4">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classModal">Set Requirements</button>
-        </div>
+    </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="classModal" tabindex="-1" aria-labelledby="classModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="classModalLabel">Select Classes</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="classForm">
-                            <!-- Dropdowns for selecting classes -->
-                            <div id="dropdown-container">
-                                <!-- JavaScript will populate dropdowns dynamically here -->
-                            </div>
-                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="classes.js"></script> <!-- Include the JS file with class data -->
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // Add the first dropdown on page load
-                addDropdown();
-                // Load existing schedule if available
-                updateScheduleTable();
+    <!-- Include Bootstrap JS and classes.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="classes.js"></script> <!-- Include the JS file with class data -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add the first dropdown on page load
+            addDropdown();
+            updateScheduleTable();
+        });
+        
+        // Set to track already selected courses
+        const selectedCoursesSet = new Set();
+        
+        function addDropdown() {
+            const dropdownContainer = document.getElementById('dropdown-container');
+        
+            // Create form group for dropdown
+            const formGroup = document.createElement('div');
+            formGroup.classList.add('form-group');
+        
+            const label = document.createElement('label');
+            label.textContent = `Class ${dropdownContainer.children.length + 1}`;
+            label.classList.add('form-label');
+        
+            const select = document.createElement('select');
+            select.classList.add('form-select');
+        
+            // Add default "Select a class" option
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Select a class';
+            select.appendChild(defaultOption);
+        
+            // Populate dropdown options with course-level data
+            classData.forEach(course => {
+                const option = document.createElement('option');
+                option.value = course.course; // Store course code as value
+                option.textContent = `${course.course}: ${course.title}`;
+                select.appendChild(option);
             });
-
-            // Set to track already selected courses
-            const selectedCoursesSet = new Set();
-
-            function addDropdown() {
-                const dropdownContainer = document.getElementById('dropdown-container');
-
-                // Create form group for dropdown
-                const formGroup = document.createElement('div');
-                formGroup.classList.add('form-group');
-
-                const label = document.createElement('label');
-                label.textContent = `Class ${dropdownContainer.children.length + 1}`;
-                label.classList.add('form-label');
-
-                const select = document.createElement('select');
-                select.classList.add('form-select');
-
-                // Add default "Select a class" option
-                const defaultOption = document.createElement('option');
-                defaultOption.value = '';
-                defaultOption.textContent = 'Select a class';
-                select.appendChild(defaultOption);
-
-                // Populate dropdown options with course-level data
-                classData.forEach(course => {
-                    const option = document.createElement('option');
-                    option.value = course.course; // Store course code as value
-                    option.textContent = `${course.course}: ${course.title}`;
-                    select.appendChild(option);
-                });
-
-                // Event listener for dropdown changes
-                select.addEventListener('change', () => {
-                    const previousValue = select.dataset.previousValue || '';
-                    const currentValue = select.value;
-
-                    if (previousValue) {
-                        // Remove the previous value from the selected set
-                        selectedCoursesSet.delete(previousValue);
-                    }
-
-                    if (currentValue) {
-                        // Check if the new value is already in the set
-                        if (selectedCoursesSet.has(currentValue)) {
-                            alert('You have already selected this course.');
-                            select.value = ''; // Reset the dropdown value
-                        } else {
-                            // Add the new value to the set
-                            selectedCoursesSet.add(currentValue);
-                            select.dataset.previousValue = currentValue; // Update the stored value
-                            addDropdown(); // Add a new dropdown
-                        }
+        
+            // Event listener for dropdown changes
+            select.addEventListener('change', () => {
+                const previousValue = select.dataset.previousValue || '';
+                const currentValue = select.value;
+        
+                if (previousValue) {
+                    // Remove the previous value from the selected set
+                    selectedCoursesSet.delete(previousValue);
+                }
+        
+                if (currentValue) {
+                    // Check if the new value is already in the set
+                    if (selectedCoursesSet.has(currentValue)) {
+                        alert('You have already selected this course.');
+                        select.value = ''; // Reset the dropdown value
                     } else {
-                        // Clear the previous value if no course is selected
-                        select.dataset.previousValue = '';
+                        // Add the new value to the set
+                        selectedCoursesSet.add(currentValue);
+                        select.dataset.previousValue = currentValue; // Update the stored value
                     }
-                });
-
-                // Append label and dropdown to the form group
-                formGroup.appendChild(label);
-                formGroup.appendChild(select);
-
-                // Append form group to the container
-                dropdownContainer.appendChild(formGroup);
-            }
-
-            document.getElementById('classForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Get selected courses
-                const selectedCourses = [];
-                const selects = document.querySelectorAll('#dropdown-container select');
-                selects.forEach(select => {
-                    if (select.value) {
-                        selectedCourses.push(select.value);
-                    }
-                });
-
-                // Generate schedule
-                const schedule = generateSchedule(selectedCourses);
-
-                if (schedule) {
-                    // Save selected schedule to localStorage
-                    localStorage.setItem('schedule', JSON.stringify(schedule));
-
-                    // Close the modal
-                    const modalElement = document.getElementById('classModal');
-                    const modal = bootstrap.Modal.getInstance(modalElement);
-                    modal.hide();
-
-                    // Update the schedule table
-                    updateScheduleTable();
                 } else {
-                    alert('No valid schedule found for the selected courses.');
+                    // Clear the previous value if no course is selected
+                    select.dataset.previousValue = '';
+                }
+        
+                // Check if all dropdowns are filled before adding a new one
+                if (allDropdownsFilled()) {
+                    addDropdown();
+                }
+            });
+        
+            // Append label and dropdown to the form group
+            formGroup.appendChild(label);
+            formGroup.appendChild(select);
+        
+            // Append form group to the container
+            dropdownContainer.appendChild(formGroup);
+        }
+        
+        function allDropdownsFilled() {
+            const selects = document.querySelectorAll('#dropdown-container select');
+            return Array.from(selects).every(select => select.value !== '');
+        }
+        
+        document.getElementById('classForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+        
+            // Get selected courses
+            const selectedCourses = [];
+            const selects = document.querySelectorAll('#dropdown-container select');
+            selects.forEach(select => {
+                if (select.value) {
+                    selectedCourses.push(select.value);
                 }
             });
 
-            function updateScheduleTable() {
-                const schedule = JSON.parse(localStorage.getItem('schedule'));
-                const tableBody = document.getElementById('schedule-table-body');
-                tableBody.innerHTML = '';
+            // Get time preferences
+            const startTimeInput = document.getElementById('startTime').value.trim() || '12:00AM';
+            const endTimeInput = document.getElementById('endTime').value.trim() || '11:59PM';
+            const preferredStartTime = convertToMinutes(startTimeInput);
+            const preferredEndTime = convertToMinutes(endTimeInput);
 
-                if (schedule) {
-                    schedule.forEach(entry => {
-                        const row = `
-                            <tr>
-                                <td>${entry.course}</td>
-                                <td>${entry.section.section}</td>
-                                <td>${entry.section.days}</td>
-                                <td>${entry.section.times}</td>
-                                <td>${entry.section.instructor}</td>
-                            </tr>
-                        `;
-                        tableBody.insertAdjacentHTML('beforeend', row);
-                    });
-                }
+            if (preferredStartTime === null || preferredEndTime === null) {
+                alert('Please enter valid preferred times in the format HH:MMAM/PM.');
+                return;
             }
 
-            function generateSchedule(selectedCourses) {
-                const schedules = [];
-                const courseSections = selectedCourses.map(courseCode => {
-                    return classData.find(course => course.course === courseCode);
+            // Generate schedule
+            const schedule = generateSchedule(selectedCourses, preferredStartTime, preferredEndTime);
+        
+            if (schedule) {
+                // Save selected schedule to localStorage
+                localStorage.setItem('schedule', JSON.stringify(schedule));
+        
+                // Close the modal
+                const modalElement = document.getElementById('classModal');
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                modal.hide();
+        
+                // Update the schedule table
+                updateScheduleTable();
+            } else {
+                alert('No valid schedule found for the selected courses.');
+            }
+        });
+        
+        function updateScheduleTable() {
+            const schedule = JSON.parse(localStorage.getItem('schedule'));
+            const tableBody = document.getElementById('schedule-table-body');
+            tableBody.innerHTML = '';
+        
+            if (schedule) {
+                // Sort schedule by day and time
+                const sortedSchedule = sortSchedule(schedule);
+                sortedSchedule.forEach(entry => {
+                    const outsideTimeNote = entry.outsidePreferredTime ? '<br><span class="outside-time-note">Outside preferred time range</span>' : '';
+                    const row = `
+                        <tr>
+                            <td>${entry.course}</td>
+                            <td>${entry.section.section}</td>
+                            <td>${entry.section.days}</td>
+                            <td>${entry.section.times}${outsideTimeNote}</td>
+                            <td>${entry.section.instructor}</td>
+                        </tr>
+                    `;
+                    tableBody.insertAdjacentHTML('beforeend', row);
                 });
+            }
+        }
 
-                function recurse(index, currentSchedule) {
-                    if (index === courseSections.length) {
-                        schedules.push([...currentSchedule]);
-                        return true; // Found at least one valid schedule
+        function sortSchedule(schedule) {
+            const dayOrder = { 'Mo': 1, 'Tu': 2, 'We': 3, 'Th': 4, 'Fr': 5 };
+            return schedule.slice().sort((a, b) => {
+                // Compare by earliest day
+                const aDays = getEarliestDay(a.section.days);
+                const bDays = getEarliestDay(b.section.days);
+                const dayComparison = dayOrder[aDays] - dayOrder[bDays];
+                if (dayComparison !== 0) return dayComparison;
+                // If same day, compare by start time
+                const aTime = parseTime(a.section.times)[0];
+                const bTime = parseTime(b.section.times)[0];
+                return aTime - bTime;
+            });
+        }
+
+        function getEarliestDay(daysString) {
+            const dayCodes = ['Mo', 'Tu', 'We', 'Th', 'Fr'];
+            for (const code of dayCodes) {
+                if (daysString.includes(code)) return code;
+            }
+            return 'Fr'; // Default to Friday if no match
+        }
+        
+        function generateSchedule(selectedCourses, preferredStartTime, preferredEndTime) {
+            let schedules = [];
+            const courseSections = selectedCourses.map(courseCode => {
+                return classData.find(course => course.course === courseCode);
+            });
+        
+            function recurse(index, currentSchedule) {
+                if (index === courseSections.length) {
+                    schedules.push([...currentSchedule]);
+                    return true; // Found at least one valid schedule
+                }
+        
+                const course = courseSections[index];
+                let sectionsWithinTime = [];
+                let sectionsOutsideTime = [];
+
+                // Separate sections based on time preference
+                for (const section of course.sections) {
+                    if (isWithinPreferredTime(section, preferredStartTime, preferredEndTime)) {
+                        sectionsWithinTime.push(section);
+                    } else {
+                        sectionsOutsideTime.push(section);
                     }
+                }
 
-                    const course = courseSections[index];
-                    for (const section of course.sections) {
-                        if (!hasConflict(currentSchedule, section)) {
-                            currentSchedule.push({ course: course.course, section: section });
-                            if (recurse(index + 1, currentSchedule)) {
-                                return true; // Stop after finding one valid schedule
-                            }
-                            currentSchedule.pop();
+                // Try sections within preferred time first
+                for (const section of sectionsWithinTime) {
+                    if (!hasConflict(currentSchedule, section)) {
+                        currentSchedule.push({ course: course.course, section: section, outsidePreferredTime: false });
+                        if (recurse(index + 1, currentSchedule)) {
+                            return true; // Stop after finding one valid schedule
                         }
-                    }
-                    return false; // No valid section found for this course
-                }
-
-                const success = recurse(0, []);
-                return success ? schedules[0] : null;
-            }
-
-            function hasConflict(schedule, newSection) {
-                for (const entry of schedule) {
-                    if (sectionsOverlap(entry.section, newSection)) {
-                        return true;
+                        currentSchedule.pop();
                     }
                 }
-                return false;
-            }
 
-            function sectionsOverlap(section1, section2) {
-                const daysOverlap = section1.days.split('').some(day => section2.days.includes(day));
-                if (!daysOverlap) return false;
-
-                const [start1, end1] = parseTime(section1.times);
-                const [start2, end2] = parseTime(section2.times);
-
-                return (start1 < end2 && start2 < end1);
-            }
-
-            function parseTime(timeRange) {
-                // Example input: "9:10AM - 10:00AM"
-                const [startTime, endTime] = timeRange.split(' - ');
-                return [convertToMinutes(startTime), convertToMinutes(endTime)];
-            }
-
-            function convertToMinutes(timeStr) {
-                // Convert "9:10AM" to minutes since 0:00
-                let [time, modifier] = timeStr.split(/(AM|PM)/);
-                let [hours, minutes] = time.split(':').map(Number);
-
-                if (modifier === 'PM' && hours !== 12) {
-                    hours += 12;
+                // If no valid schedule, try sections outside preferred time
+                for (const section of sectionsOutsideTime) {
+                    if (!hasConflict(currentSchedule, section)) {
+                        currentSchedule.push({ course: course.course, section: section, outsidePreferredTime: true });
+                        if (recurse(index + 1, currentSchedule)) {
+                            return true; // Stop after finding one valid schedule
+                        }
+                        currentSchedule.pop();
+                    }
                 }
-                if (modifier === 'AM' && hours === 12) {
-                    hours = 0;
-                }
-                return hours * 60 + minutes;
+
+                return false; // No valid section found for this course
             }
-        </script>
-    </body>
+        
+            const success = recurse(0, []);
+            return success ? schedules[0] : null;
+        }
+
+        function isWithinPreferredTime(section, preferredStartTime, preferredEndTime) {
+            const [start, end] = parseTime(section.times);
+            return start >= preferredStartTime && end <= preferredEndTime;
+        }
+        
+        function hasConflict(schedule, newSection) {
+            for (const entry of schedule) {
+                if (sectionsOverlap(entry.section, newSection)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function sectionsOverlap(section1, section2) {
+            const days1 = splitDays(section1.days);
+            const days2 = splitDays(section2.days);
+            const daysOverlap = days1.some(day => days2.includes(day));
+            if (!daysOverlap) return false;
+        
+            const [start1, end1] = parseTime(section1.times);
+            const [start2, end2] = parseTime(section2.times);
+        
+            return (start1 < end2 && start2 < end1);
+        }
+
+        function splitDays(daysString) {
+            const regex = /(Mo|Tu|We|Th|Fr)/g;
+            let match;
+            const days = [];
+            while ((match = regex.exec(daysString)) !== null) {
+                days.push(match[0]);
+            }
+            return days;
+        }
+        
+        function parseTime(timeRange) {
+            const [startTime, endTime] = timeRange.split(' - ');
+            return [convertToMinutes(startTime), convertToMinutes(endTime)];
+        }
+        
+        function convertToMinutes(timeStr) {
+            const regex = /^(\d{1,2}):(\d{2})(AM|PM)$/;
+            const match = timeStr.match(regex);
+            if (!match) return null;
+            let [_, hours, minutes, modifier] = match;
+            hours = parseInt(hours);
+            minutes = parseInt(minutes);
+        
+            if (modifier === 'PM' && hours !== 12) {
+                hours += 12;
+            }
+            if (modifier === 'AM' && hours === 12) {
+                hours = 0;
+            }
+            return hours * 60 + minutes;
+        }
+    </script>
+</body>
 </html>
