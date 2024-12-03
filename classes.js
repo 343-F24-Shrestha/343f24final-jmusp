@@ -532,5 +532,551 @@ const classData = [
                 "instructor": "To be Announced"
             }
         ]
+    },
+    {
+        "course": "MATH 103",
+        "title": "The Nature of Mathematics [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "TuTh",
+                "times": "11:10AM - 12:25PM",
+                "instructor": "Jason Rosenhouse"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "TuTh",
+                "times": "11:10AM - 12:25PM",
+                "instructor": "Eva Strawbridge"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "TuTh",
+                "times": "12:45PM - 2:00PM",
+                "instructor": "Eva Strawbridge"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "TuTh",
+                "times": "12:45PM - 2:00PM",
+                "instructor": "Alexis Stevens"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "TuTh",
+                "times": "3:55PM - 5:10PM",
+                "instructor": "Jason Rosenhouse"
+            },
+            {
+                "section": "0006-LEC",
+                "days": "TuTh",
+                "times": "5:30PM - 6:45PM",
+                "instructor": "Bobby Ratliff"
+            },
+            {
+                "section": "OP01-LEC",
+                "days": "TBA",
+                "times": "TBA",
+                "instructor": "Kari Salois"
+            }
+        ]
+    },
+    {
+        "course": "MATH 105",
+        "title": "Quantitative Literacy and Reasoning [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "12:40PM - 1:30PM",
+                "instructor": "Ben Ward"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "1:50PM - 2:40PM",
+                "instructor": "To be Announced"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "1:50PM - 2:40PM",
+                "instructor": "Ben Ward"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "MoWeFr",
+                "times": "3:00PM - 3:50PM",
+                "instructor": "Ben Ward"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "TuTh",
+                "times": "8:00AM - 9:15AM",
+                "instructor": "Melissa Altman"
+            },
+            {
+                "section": "0006-LEC",
+                "days": "TuTh",
+                "times": "8:00AM - 9:15AM",
+                "instructor": "Beth Cochran"
+            },
+            {
+                "section": "OP01-LEC",
+                "days": "TBA",
+                "times": "TBA",
+                "instructor": "Kari Salois"
+            }
+        ]
+    },
+    {
+        "course": "MATH 110",
+        "title": "Mathematics for Elementary and Middle School Teachers I [C3QR]",
+        "sections": [
+            {
+                "section": "0002-LEC",
+                "days": "MoWe",
+                "times": "11:30AM - 1:30PM",
+                "instructor": "J. Chris Willingham"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "TuTh",
+                "times": "12:45PM - 2:45PM",
+                "instructor": "Zig Siegfried"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "TuTh",
+                "times": "3:10PM - 5:10PM",
+                "instructor": "Zig Siegfried"
+            }
+        ]
+    },
+    {
+        "course": "MATH 111",
+        "title": "Mathematics Seminar for Elementary and Middle School Teachers",
+        "sections": [
+            {
+                "section": "0001-SEM",
+                "days": "Mo",
+                "times": "4:10PM - 5:00PM",
+                "instructor": "Zig Siegfried"
+            }
+        ]
+    },
+    {
+        "course": "MATH 155",
+        "title": "College Algebra",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWe",
+                "times": "3:25PM - 4:40PM",
+                "instructor": "Christy Lowery Carter"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "TuTh",
+                "times": "11:10AM - 12:25PM",
+                "instructor": "Teresa Haskiell"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "TuTh",
+                "times": "2:20PM - 3:35PM",
+                "instructor": "William Turner"
+            }
+        ]
+    },
+    {
+        "course": "MATH 167",
+        "title": "Topics in Mathematics",
+        "sections": [
+            {
+                "section": "1101-LEC",
+                "days": "MoTuWeThFr",
+                "times": "9:00AM - 11:40AM",
+                "instructor": "Steven Garren"
+            },
+            {
+                "section": "1201-LEC",
+                "days": "MoTuWeThFr",
+                "times": "1:00PM - 3:40PM",
+                "instructor": "Nusrat Jahan"
+            }
+        ]
+    },
+    {
+        "course": "MATH 199",
+        "title": "Algebra / Precalculus Gateway",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "TBA",
+                "times": "TBA",
+                "instructor": "Kane Nashimoto"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "TBA",
+                "times": "TBA",
+                "instructor": "Kane Nashimoto"
+            },
+            {
+                "section": "OP01-LEC",
+                "days": "TBA",
+                "times": "TBA",
+                "instructor": "Kane Nashimoto"
+            }
+        ]
+    },
+    {
+        "course": "MATH 205",
+        "title": "Introductory Calculus I [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "TuTh",
+                "times": "12:45PM - 2:00PM",
+                "instructor": "Tehani Finch"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "TuTh",
+                "times": "11:10AM - 12:25PM",
+                "instructor": "Tehani Finch"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "8:00AM - 8:50AM",
+                "instructor": "Johnathan Bush"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "TuTh",
+                "times": "9:35AM - 10:50AM",
+                "instructor": "Caroline Lubert"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "TuTh",
+                "times": "11:10AM - 12:25PM",
+                "instructor": "Caroline Lubert"
+            }
+        ]
+    },
+    {
+        "course": "MATH 210",
+        "title": "Mathematics for Elementary and Middle School Teachers II",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWe",
+                "times": "9:10AM - 11:10AM",
+                "instructor": "Rich Busi"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWe",
+                "times": "11:30AM - 1:30PM",
+                "instructor": "Rich Busi"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "TuTh",
+                "times": "9:35AM - 11:35AM",
+                "instructor": "Jenny Gibson"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "TuTh",
+                "times": "12:00PM - 2:00PM",
+                "instructor": "Jenny Gibson"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "TuTh",
+                "times": "2:20PM - 4:20PM",
+                "instructor": "Jenny Gibson"
+            },
+            {
+                "section": "0006-LEC",
+                "days": "TuTh",
+                "times": "4:45PM - 6:45PM",
+                "instructor": "Rich Busi"
+            }
+        ]
+    },
+    {
+        "course": "MATH 220",
+        "title": "Elementary Statistics [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "8:00AM - 8:50AM",
+                "instructor": "Colleen Watson"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "9:10AM - 10:00AM",
+                "instructor": "Colleen Watson"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "9:10AM - 10:00AM",
+                "instructor": "Lamiaa Korayem"
+            },
+            {
+                "section": "0006-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Chamila Ranaweera"
+            },
+            {
+                "section": "0008-LEC",
+                "days": "MoWeFr",
+                "times": "12:40PM - 1:30PM",
+                "instructor": "Chamila Ranaweera"
+            }
+        ]
+    },
+    {
+        "course": "MATH 220H",
+        "title": "Elementary Statistics - Honors [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWe",
+                "times": "1:50PM - 3:05PM",
+                "instructor": "Nusrat Jahan"
+            }
+        ]
+    },
+    {
+        "course": "MATH 229",
+        "title": "Introduction to Applied Statistics Using R [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "9:10AM - 10:00AM",
+                "instructor": "Mozhdeh Forghaniarani"
+            }
+        ]
+    },
+    {
+        "course": "MATH 231",
+        "title": "Calculus with Functions I [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Celes Woodruff"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "11:30AM - 12:20PM",
+                "instructor": "To be Announced"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "11:30AM - 12:20PM",
+                "instructor": "Stephanie Berry"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "MoWeFr",
+                "times": "3:00PM - 3:50PM",
+                "instructor": "Stephanie Berry"
+            },
+            {
+                "section": "OP01-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Celes Woodruff"
+            },
+            {
+                "section": "OP02-LEC",
+                "days": "MoWeFr",
+                "times": "3:00PM - 3:50PM",
+                "instructor": "Stephanie Berry"
+            }
+        ]
+    },
+    {
+        "course": "MATH 232",
+        "title": "Calculus with Functions II",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Laura Taalman"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "11:30AM - 12:20PM",
+                "instructor": "Laura Taalman"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "11:30AM - 12:20PM",
+                "instructor": "John Webb"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "MoWeFr",
+                "times": "1:50PM - 2:40PM",
+                "instructor": "Stephanie Berry"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "MoWeFr",
+                "times": "1:50PM - 2:40PM",
+                "instructor": "Rebecca Field"
+            },
+            {
+                "section": "0006-LEC",
+                "days": "MoWeFr",
+                "times": "3:00PM - 3:50PM",
+                "instructor": "Rebecca Field"
+            }
+        ]
+    },
+    {
+        "course": "MATH 235",
+        "title": "Calculus I [C3QR]",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Roger Thelwell"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "3:00PM - 3:50PM",
+                "instructor": "To be Announced"
+            }
+        ]
+    },
+    {
+        "course": "MATH 236",
+        "title": "Calculus II",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "9:10AM - 10:00AM",
+                "instructor": "Paul Warne"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Paul Warne"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "11:30AM - 12:20PM",
+                "instructor": "Meric Augat"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "MoWeFr",
+                "times": "12:40PM - 1:30PM",
+                "instructor": "Zev Woodstock"
+            },
+            {
+                "section": "0005-LEC",
+                "days": "MoWeFr",
+                "times": "1:50PM - 2:40PM",
+                "instructor": "Vladislav Kokushkin"
+            },
+            {
+                "section": "0006-LEC",
+                "days": "MoWeFr",
+                "times": "9:10AM - 10:00AM",
+                "instructor": "Pye Aung"
+            }
+        ]
+    },
+    {
+        "course": "MATH 237",
+        "title": "Calculus III",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "TBA",
+                "times": "TBA",
+                "instructor": "To be Announced"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Pye Aung"
+            },
+            {
+                "section": "0003-LEC",
+                "days": "MoWeFr",
+                "times": "3:00PM - 3:50PM",
+                "instructor": "Elizabeth Brown"
+            }
+        ]
+    },
+    {
+        "course": "MATH 238",
+        "title": "Linear Algebra with Differential Equations",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "11:30AM - 12:20PM",
+                "instructor": "Debra Warne"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "12:40PM - 1:30PM",
+                "instructor": "Debra Warne"
+            },
+            {
+                "section": "0004-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Alexander Capaldi"
+            }
+        ]
+    },
+    {
+        "course": "MATH 245",
+        "title": "Discrete Mathematics",
+        "sections": [
+            {
+                "section": "0001-LEC",
+                "days": "MoWeFr",
+                "times": "10:20AM - 11:10AM",
+                "instructor": "Leonard Vanwyk"
+            },
+            {
+                "section": "0002-LEC",
+                "days": "MoWeFr",
+                "times": "1:50PM - 2:40PM",
+                "instructor": "Leonard Vanwyk"
+            }
+        ]
     }
 ]
