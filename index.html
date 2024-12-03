@@ -1,11 +1,9 @@
-<!-- Main/home page -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Main Home Page</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8">
         <meta name="description"
         content="Use the JMU Schedule Planner to seamlessly create the ideal schedule to fit your needs.">
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -22,86 +20,177 @@
                 font-family: Arial, sans-serif;
                 box-shadow: 0 4px 2px -2px gray;
             }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
         </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand text-white" href="index.html">
-      <img src="img/JMULogo.png" alt="JMU Logo" style="width: 100px" class="me-2">
-      Schedule Planner
-    </a>
-    <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="bi bi-list"></i> <!-- Nav bar collapses on smaller screen sizes -->
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-secondary" href="schedulepreview.html">Schedule Preview</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-secondary" href="help.html">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-secondary" href="welcome.html">Welcome</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-outline-light" href="signin.html">Sign In</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>  
-<div class="container mt-4">
-    <h1 class="display-5 text-center mb-4">Hello, Username!</h1>
-    <h2 class="display-5 text-center mb-4">Current Schedule</h2>
-    <div class="table-responsive">
-        <table class="table table-bordered schedule-table">
-            <thead>
-                <tr>
-                    <th>Class Name</th>
-                    <th>Time</th>
-                    <th>Day</th>
-                    <th>Professor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Introduction to Programming</td>
-                    <td>9:00 AM - 10:30 AM</td>
-                    <td>Monday, Wednesday</td>
-                    <td>Prof. Jane Doe</td>
-                </tr>
-                <tr>
-                    <td>Calculus I</td>
-                    <td>11:00 AM - 12:30 PM</td>
-                    <td>Tuesday, Thursday</td>
-                    <td>Prof. John Smith</td>
-                </tr>
-                <tr>
-                    <td>World History</td>
-                    <td>1:00 PM - 2:30 PM</td>
-                    <td>Monday, Wednesday</td>
-                    <td>Prof. Alice Johnson</td>
-                </tr>
-                <tr>
-                    <td>Physics Lab</td>
-                    <td>3:00 PM - 5:00 PM</td>
-                    <td>Friday</td>
-                    <td>Prof. Bob Brown</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<!-- Set Requirements Button -->
-<div class="text-center mt-4">
-    <a href="schedulepreview.html" class="btn btn-primary">Set Requirements</a>
-</div>
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="index.html">
+                    <img src="img/JMULogo.png" alt="JMU Logo" style="width: 100px" class="me-2">
+                    Schedule Planner
+                </a>
+                <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="schedulepreview.html">Schedule Preview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="help.html">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="welcome.html">Welcome</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light" href="signin.html">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>  
+        <div class="container mt-4">
+            <h1 class="display-5 text-center mb-4">Hello, Username!</h1>
+            <h2 class="display-5 text-center mb-4">Current Schedule</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Selected Class</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-table-body">
+                        <!-- Existing schedule rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Set Requirements Button -->
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classModal">Set Requirements</button>
+        </div>
 
-<script src="js/bootstrap.bundle.min.js"></script>
-</body>
+        <!-- Modal -->
+        <div class="modal fade" id="classModal" tabindex="-1" aria-labelledby="classModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="classModalLabel">Select Classes</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="classForm">
+                            <!-- Dropdowns for selecting classes -->
+                            <div id="dropdown-container">
+                                <!-- JavaScript will populate dropdowns dynamically here -->
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="classes.js"></script> <!-- Include the JS file with class data -->
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+              // Add the first dropdown on page load
+              addDropdown();
+          });
+      
+          // Set to track already selected courses
+          const selectedCoursesSet = new Set();
+      
+          function addDropdown() {
+              const dropdownContainer = document.getElementById('dropdown-container');
+      
+              // Create form group for dropdown
+              const formGroup = document.createElement('div');
+              formGroup.classList.add('form-group');
+      
+              const label = document.createElement('label');
+              label.textContent = `Class ${dropdownContainer.children.length + 1}`;
+              label.classList.add('form-label');
+      
+              const select = document.createElement('select');
+              select.classList.add('form-select');
+      
+              // Add default "Select a class" option
+              const defaultOption = document.createElement('option');
+              defaultOption.value = '';
+              defaultOption.textContent = 'Select a class';
+              select.appendChild(defaultOption);
+      
+              // Populate dropdown options with course-level data
+              classData.forEach(course => {
+                  const option = document.createElement('option');
+                  option.value = course.course; // Store course code as value
+                  option.textContent = `${course.course}: ${course.title}`;
+                  select.appendChild(option);
+              });
+      
+              // Event listener to add a new dropdown when a class is selected
+              select.addEventListener('change', () => {
+                  if (select.value && !selectedCoursesSet.has(select.value)) {
+                      selectedCoursesSet.add(select.value); // Add to selected courses set
+                      select.dataset.populated = true; // Mark this dropdown as populated
+                      addDropdown(); // Add a new dropdown
+                  } else if (selectedCoursesSet.has(select.value)) {
+                      alert('You have already selected this course.');
+                      select.value = ''; // Reset the dropdown value
+                  }
+              });
+      
+              // Append label and dropdown to the form group
+              formGroup.appendChild(label);
+              formGroup.appendChild(select);
+      
+              // Append form group to the container
+              dropdownContainer.appendChild(formGroup);
+          }
+      
+          document.getElementById('classForm').addEventListener('submit', function (e) {
+              e.preventDefault();
+      
+              // Get selected values
+              const selectedClasses = [];
+              const selects = document.querySelectorAll('#dropdown-container select');
+              selects.forEach(select => {
+                  if (select.value) {
+                      selectedClasses.push(select.value);
+                  }
+              });
+      
+              // Save selected classes to localStorage
+              localStorage.setItem('schedule', JSON.stringify(selectedClasses));
+      
+              // Close the modal
+              const modalElement = document.getElementById('classModal');
+              const modal = bootstrap.Modal.getInstance(modalElement);
+              modal.hide();
+      
+              // Update the schedule table
+              updateScheduleTable();
+          });
+      
+          function updateScheduleTable() {
+              const classes = JSON.parse(localStorage.getItem('schedule')) || [];
+              const tableBody = document.getElementById('schedule-table-body');
+              tableBody.innerHTML = '';
+              classes.forEach(cls => {
+                  const row = `<tr><td>${cls}</td></tr>`;
+                  tableBody.insertAdjacentHTML('beforeend', row);
+              });
+          }
+      </script>
+    </body>
 </html>
