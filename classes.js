@@ -1228,258 +1228,6 @@ const classData = [
         "title": "United States History [C4AE]",
         "sections": [
             {
-                "section": "0001-LEC",
-                "days": "TuTh",
-                "times": "8:00AM - 9:15AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "TuTh",
-                "times": "8:00AM - 9:15AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0003-LEC",
-                "days": "TuTh",
-                "times": "8:00AM - 9:15AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0004-LEC",
-                "days": "TuTh",
-                "times": "8:00AM - 9:15AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0005-LEC",
-                "days": "TuTh",
-                "times": "8:00AM - 9:15AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0006-LEC",
-                "days": "TuTh",
-                "times": "8:00AM - 9:15AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0007-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0008-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0009-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0010-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0011-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0012-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0013-LEC",
-                "days": "TuTh",
-                "times": "2:20PM - 3:35PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0014-LEC",
-                "days": "TuTh",
-                "times": "2:20PM - 3:35PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0015-LEC",
-                "days": "TuTh",
-                "times": "2:20PM - 3:35PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0016-LEC",
-                "days": "TuTh",
-                "times": "2:20PM - 3:35PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0017-LEC",
-                "days": "TuTh",
-                "times": "2:20PM - 3:35PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0018-LEC",
-                "days": "TuTh",
-                "times": "2:20PM - 3:35PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0019-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0020-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0021-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0022-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0023-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0024-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0025-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0026-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0027-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0028-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0029-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0030-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Health & Behavioral St G010"
-            },
-            {
-                "section": "0031-LEC",
-                "days": "MoWeFr",
-                "times": "8:00AM - 8:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0032-LEC",
-                "days": "MoWeFr",
-                "times": "8:00AM - 8:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0033-LEC",
-                "days": "MoWeFr",
-                "times": "8:00AM - 8:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0034-LEC",
-                "days": "MoWeFr",
-                "times": "8:00AM - 8:50AM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0035-LEC",
-                "days": "MoWeFr",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0036-LEC",
-                "days": "MoWeFr",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0037-LEC",
-                "days": "MoWeFr",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0038-LEC",
-                "days": "MoWeFr",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Harrison Hall 2105"
-            },
-            {
-                "section": "0039-LEC",
-                "days": "MoWeFr",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0040-LEC",
-                "days": "MoWeFr",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0041-LEC",
-                "days": "MoWeFr",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
-                "section": "0042-LEC",
-                "days": "MoWeFr",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Harrison Hall 1261"
-            },
-            {
                 "section": "OP01-LEC",
                 "days": "TBA",
                 "times": "TBA",
@@ -1972,18 +1720,6 @@ const classData = [
                 "instructor": "Kevin Jefferson"
             },
             {
-                "section": "0008-LEC",
-                "days": "MoWe",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Wilson Hall 2001"
-            },
-            {
-                "section": "0010-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Harrison Hall 2104"
-            },
-            {
                 "section": "0011-LEC",
                 "days": "TuTh",
                 "times": "8:00AM - 9:15AM",
@@ -2026,12 +1762,6 @@ const classData = [
                 "instructor": "Jim Zimmerman"
             },
             {
-                "section": "0018-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Harrison Hall 2111"
-            },
-            {
                 "section": "0019-LEC",
                 "days": "MoWeFr",
                 "times": "9:10AM - 10:00AM",
@@ -2066,12 +1796,6 @@ const classData = [
                 "days": "MoWeFr",
                 "times": "12:40PM - 1:30PM",
                 "instructor": "Michael Hickman"
-            },
-            {
-                "section": "0027-LEC",
-                "days": "MoWe",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Harrison Hall 2245"
             },
             {
                 "section": "0028-LEC",
@@ -2586,18 +2310,6 @@ const classData = [
         ]
     },
     {
-        "course": "WRTC 416",
-        "title": "Rhetoric of Environmental Science and Technology",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Harrison Hall 2104"
-            }
-        ]
-    },
-    {
         "course": "WRTC 426",
         "title": "Special Topics in Writing, Rhetoric and Technical Communication",
         "sections": [
@@ -2612,30 +2324,6 @@ const classData = [
                 "days": "MoWeFr",
                 "times": "9:10AM - 10:00AM",
                 "instructor": "Tiajuana L. Tillman"
-            }
-        ]
-    },
-    {
-        "course": "WRTC 456",
-        "title": "Usability Testing",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "11:30AM - 12:20PM",
-                "instructor": "Harrison Hall 2245"
-            }
-        ]
-    },
-    {
-        "course": "WRTC 484",
-        "title": "Writing for Nonprofits",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Harrison Hall 2112"
             }
         ]
     },
@@ -3160,12 +2848,6 @@ const classData = [
         "title": "Health Behavior Change",
         "sections": [
             {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Burruss Hall 236"
-            },
-            {
                 "section": "0002-LEC",
                 "days": "MoWe",
                 "times": "8:00AM - 9:15AM",
@@ -3462,18 +3144,6 @@ const classData = [
         ]
     },
     {
-        "course": "HTH 471",
-        "title": "HEALTH ASPECTS OF GERONTOLOGY",
-        "sections": [
-            {
-                "section": "7101-LEC",
-                "days": "MoWe",
-                "times": "9:10AM - 11:05AM",
-                "instructor": "Miller Hall 2102"
-            }
-        ]
-    },
-    {
         "course": "HTH 490",
         "title": "Advanced Special Studies in Health Science",
         "sections": [
@@ -3589,7 +3259,7 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "MoWeFr",
                 "times": "11:30AM - 12:20PM",
-                "instructor": "David Babcock,"
+                "instructor": "David Babcock"
             },
             {
                 "section": "0002-LEC",
@@ -3601,13 +3271,13 @@ const classData = [
                 "section": "0003-LEC",
                 "days": "MoWeFr",
                 "times": "12:40PM - 1:30PM",
-                "instructor": "Molly ODonnell,"
+                "instructor": "Molly ODonnell"
             },
             {
                 "section": "0004-LEC",
                 "days": "TuTh",
                 "times": "9:35AM - 10:50AM",
-                "instructor": "Erica Cavanagh,"
+                "instructor": "Erica Cavanagh"
             },
             {
                 "section": "0005-LEC",
@@ -3619,13 +3289,13 @@ const classData = [
                 "section": "0006-LEC",
                 "days": "TuTh",
                 "times": "11:10AM - 12:25PM",
-                "instructor": "Mark Rankin,"
+                "instructor": "Mark Rankin"
             },
             {
                 "section": "0007-LEC",
                 "days": "TuTh",
                 "times": "12:45PM - 2:00PM",
-                "instructor": "Katey Castellano,"
+                "instructor": "Katey Castellano"
             },
             {
                 "section": "0008-LEC",
@@ -3697,7 +3367,7 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "TuTh",
                 "times": "2:20PM - 3:35PM",
-                "instructor": "Heidi Pennington,"
+                "instructor": "Heidi Pennington"
             }
         ]
     },
@@ -3721,13 +3391,13 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "MoWeFr",
                 "times": "1:50PM - 2:40PM",
-                "instructor": "Matthew Rebhorn,"
+                "instructor": "Matthew Rebhorn"
             },
             {
                 "section": "0002-LEC",
                 "days": "MoWe",
                 "times": "9:35AM - 10:50AM",
-                "instructor": "Laura Henigman,"
+                "instructor": "Laura Henigman"
             }
         ]
     },
@@ -4104,18 +3774,6 @@ const classData = [
         ]
     },
     {
-        "course": "ENG 439",
-        "title": "Advanced Studies in Major Authors of Literature in Spanish in Translation",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "Mo",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Miller Hall 2102"
-            }
-        ]
-    },
-    {
         "course": "ENG 447",
         "title": "Advanced Playwriting",
         "sections": [
@@ -4251,24 +3909,6 @@ const classData = [
         "course": "ART 200",
         "title": "Art in General Culture [C2VPA]",
         "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "8:00AM - 8:50AM",
-                "instructor": "Duke Hall 2036"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "MoWe",
-                "times": "9:10AM - 10:00AM",
-                "instructor": "Duke Hall 2036"
-            },
-            {
-                "section": "0003-LEC",
-                "days": "MoWe",
-                "times": "11:30AM - 12:20PM",
-                "instructor": "Duke Hall 2036"
-            },
             {
                 "section": "0004-LEC",
                 "days": "TuTh",
@@ -4614,18 +4254,6 @@ const classData = [
         ]
     },
     {
-        "course": "ART 392",
-        "title": "Topics in Art",
-        "sections": [
-            {
-                "section": "0001-SEM",
-                "days": "TuTh",
-                "times": "2:40PM - 5:10PM",
-                "instructor": "Memorial Hall Arts Cmplex 1011"
-            }
-        ]
-    },
-    {
         "course": "ART 400",
         "title": "Topics in Illustration",
         "sections": [
@@ -4758,18 +4386,6 @@ const classData = [
         ]
     },
     {
-        "course": "ART 460",
-        "title": "Advanced Photography: Alternative Processes (0,9)",
-        "sections": [
-            {
-                "section": "0001-SEM",
-                "days": "TuTh",
-                "times": "2:40PM - 5:10PM",
-                "instructor": "Memorial Hall Arts Cmplex 1011"
-            }
-        ]
-    },
-    {
         "course": "ART 469",
         "title": "Photography: Portfolio Development (0,9)",
         "sections": [
@@ -4784,12 +4400,6 @@ const classData = [
                 "days": "TBA",
                 "times": "TBA",
                 "instructor": "Rebecca Silberman"
-            },
-            {
-                "section": "0003-SEM",
-                "days": "TuTh",
-                "times": "2:40PM - 5:10PM",
-                "instructor": "Memorial Hall Arts Cmplex 1011"
             }
         ]
     },
@@ -5082,18 +4692,6 @@ const classData = [
         ]
     },
     {
-        "course": "ART 600",
-        "title": "Graduate Integrative Seminar",
-        "sections": [
-            {
-                "section": "0001-SEM",
-                "days": "MoWe",
-                "times": "8:40AM - 11:10AM",
-                "instructor": "Duke Hall 1115"
-            }
-        ]
-    },
-    {
         "course": "ART 601",
         "title": "Graduate Studio Practice",
         "sections": [
@@ -5143,55 +4741,55 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "MoWe",
                 "times": "11:30AM - 12:20PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0002-LEC",
                 "days": "MoWe",
                 "times": "12:40PM - 1:30PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0003-LEC",
                 "days": "MoWe",
                 "times": "3:00PM - 3:50PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0004-LEC",
                 "days": "MoWe",
                 "times": "4:10PM - 5:00PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0005-LEC",
                 "days": "MoWe",
                 "times": "10:20AM - 11:10AM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0006-LEC",
                 "days": "MoWe",
                 "times": "11:30AM - 12:30PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0007-LEC",
                 "days": "MoWe",
                 "times": "12:40PM - 1:30PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0008-LEC",
                 "days": "TuTh",
                 "times": "2:20PM - 3:10PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0009-LEC",
                 "days": "TuTh",
                 "times": "12:45PM - 1:35PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             }
         ]
     },
@@ -5455,37 +5053,37 @@ const classData = [
                 "section": "0002-LEC",
                 "days": "MoWe",
                 "times": "10:20AM - 11:10AM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0003-LEC",
                 "days": "TuTh",
                 "times": "9:35AM - 10:25AM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0004-LEC",
                 "days": "TuTh",
                 "times": "11:10AM - 12:00PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0005-LEC",
                 "days": "TuTh",
                 "times": "12:45PM - 1:35PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0006-LEC",
                 "days": "TuTh",
                 "times": "2:20PM - 3:10PM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             },
             {
                 "section": "0002-LEC",
                 "days": "MoWe",
                 "times": "9:10AM - 10:00AM",
-                "instructor": "Scott Zane Smith,"
+                "instructor": "Scott Zane Smith"
             }
         ]
     },
@@ -5545,7 +5143,7 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "We",
                 "times": "9:10AM - 10:00AM",
-                "instructor": "Jason Haney,"
+                "instructor": "Jason Haney"
             }
         ]
     },
@@ -5797,7 +5395,7 @@ const classData = [
                 "section": "0001-SEM",
                 "days": "TBA",
                 "times": "TBA",
-                "instructor": "Jason Haney,"
+                "instructor": "Jason Haney"
             },
             {
                 "section": "0002-SEM",
@@ -5857,7 +5455,7 @@ const classData = [
                 "section": "0001-SEM",
                 "days": "We",
                 "times": "9:10AM - 10:00AM",
-                "instructor": "Jason Haney,"
+                "instructor": "Jason Haney"
             }
         ]
     },
@@ -5869,7 +5467,7 @@ const classData = [
                 "section": "0001-SEM",
                 "days": "TBA",
                 "times": "TBA",
-                "instructor": "Eric Guinivan,"
+                "instructor": "Eric Guinivan"
             }
         ]
     },
@@ -5881,7 +5479,7 @@ const classData = [
                 "section": "0001-IND",
                 "days": "TBA",
                 "times": "TBA",
-                "instructor": "Sonya Baker,"
+                "instructor": "Sonya Baker"
             },
             {
                 "section": "0002-IND",
@@ -5905,7 +5503,7 @@ const classData = [
                 "section": "0001-IND",
                 "days": "TBA",
                 "times": "TBA",
-                "instructor": "Jason Haney,"
+                "instructor": "Jason Haney"
             }
         ]
     },
@@ -6116,36 +5714,6 @@ const classData = [
                 "days": "Tu",
                 "times": "3:55PM - 4:45PM",
                 "instructor": "Maria Niculescu"
-            }
-        ]
-    },
-    {
-        "course": "PHYS 121",
-        "title": "The Physical Nature of Light and Sound (3,1) [C3PP]",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "Mo",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Physics/Chemistry 2378"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "Mo",
-                "times": "11:30AM - 12:20PM",
-                "instructor": "Physics/Chemistry 2378"
-            },
-            {
-                "section": "0003-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Physics/Chemistry 2212"
-            },
-            {
-                "section": "0004-LEC",
-                "days": "MoWe",
-                "times": "3:25PM - 4:40PM",
-                "instructor": "Physics/Chemistry 2212"
             }
         ]
     },
@@ -6450,30 +6018,6 @@ const classData = [
         ]
     },
     {
-        "course": "PHYS 260",
-        "title": "University Physics III",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWeFr",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Engineering/Geosciences 1210"
-            }
-        ]
-    },
-    {
-        "course": "PHYS 295",
-        "title": "LAB APPARATUS",
-        "sections": [
-            {
-                "section": "2101-LAB",
-                "days": "MoTuWeThFr",
-                "times": "9:00AM - 12:00PM",
-                "instructor": "Physics/Chemistry 2350"
-            }
-        ]
-    },
-    {
         "course": "PHYS 326",
         "title": "BIOPHYSICS",
         "sections": [
@@ -6510,18 +6054,6 @@ const classData = [
         ]
     },
     {
-        "course": "PHYS 360",
-        "title": "Analog Electronics",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "2:15PM - 3:30PM",
-                "instructor": "Holland Yates Hall 1062"
-            }
-        ]
-    },
-    {
         "course": "PHYS 367",
         "title": "Introduction to Acoustics",
         "sections": [
@@ -6541,7 +6073,7 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "Tu",
                 "times": "12:45PM - 3:35PM",
-                "instructor": "Scott Paulson,"
+                "instructor": "Scott Paulson"
             }
         ]
     },
@@ -6590,18 +6122,6 @@ const classData = [
                 "days": "TBA",
                 "times": "TBA",
                 "instructor": "Kevin Giovanetti"
-            }
-        ]
-    },
-    {
-        "course": "PHYS 440",
-        "title": "Geophysics (3, 2)",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWeFr",
-                "times": "9:10AM - 10:00AM",
-                "instructor": "Engineering/Geosciences 3022"
             }
         ]
     },
@@ -6696,36 +6216,6 @@ const classData = [
         ]
     },
     {
-        "course": "ISAT 112",
-        "title": "Environmental Issues in Science and Technology (2,3) [C3PP]",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "King Hall 350"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "TuTh",
-                "times": "9:35AM - 10:50AM",
-                "instructor": "King Hall 350"
-            },
-            {
-                "section": "0003-LEC",
-                "days": "TuTh",
-                "times": "11:10AM - 12:25PM",
-                "instructor": "King Hall 350"
-            },
-            {
-                "section": "0004-LEC",
-                "days": "TuTh",
-                "times": "11:10AM - 12:25PM",
-                "instructor": "King Hall 350"
-            }
-        ]
-    },
-    {
         "course": "ISAT 113",
         "title": "Biotechnology Issues in Science and Technology [C3NS]",
         "sections": [
@@ -6748,34 +6238,10 @@ const classData = [
         "title": "Topics in Applied Calculus in ISAT [C3QR]",
         "sections": [
             {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 3:05PM",
-                "instructor": "King Hall 350"
-            },
-            {
                 "section": "0001-LAB",
                 "days": "Th",
                 "times": "2:20PM - 3:35PM",
                 "instructor": "Paul Henriksen"
-            }
-        ]
-    },
-    {
-        "course": "ISAT 152",
-        "title": "Topics in Applied Physics in ISAT",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWeFr",
-                "times": "9:10AM - 10:00AM",
-                "instructor": "Fr 10:20AM - 11:10AM"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "MoWeFr",
-                "times": "9:10AM - 10:00AM",
-                "instructor": "Fr 10:20AM - 11:10AM"
             }
         ]
     },
@@ -6830,42 +6296,6 @@ const classData = [
                 "days": "TuTh",
                 "times": "9:35AM - 10:50AM",
                 "instructor": "Rod MacDonald"
-            }
-        ]
-    },
-    {
-        "course": "ISAT 211",
-        "title": "Issues in Modern Production Systems",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "1:50PM - 2:40PM",
-                "instructor": "Engineering/Geosciences 1209"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "Mo",
-                "times": "3:15PM - 4:55PM",
-                "instructor": "King Hall 146"
-            }
-        ]
-    },
-    {
-        "course": "ISAT 212",
-        "title": "ENERGY ISSUES IN SCIENCE AND TECHNOLOGY",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "King Hall 350"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "MoWe",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "King Hall 350"
             }
         ]
     },
@@ -6956,30 +6386,6 @@ const classData = [
                 "days": "TuTh",
                 "times": "3:55PM - 5:10PM",
                 "instructor": "Rod MacDonald"
-            }
-        ]
-    },
-    {
-        "course": "ISAT 300",
-        "title": "Applied Computing, Instrumentation and Measurement",
-        "sections": [
-            {
-                "section": "0001-LEC",
-                "days": "MoWe",
-                "times": "10:20AM - 11:10AM",
-                "instructor": "Engineering/Geosciences 1202"
-            },
-            {
-                "section": "0002-LEC",
-                "days": "MoWe",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Engineering/Geosciences 1301"
-            },
-            {
-                "section": "0003-LEC",
-                "days": "MoWe",
-                "times": "12:40PM - 1:30PM",
-                "instructor": "Engineering/Geosciences 1301"
             }
         ]
     },
@@ -7075,19 +6481,19 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "MoWe",
                 "times": "1:50PM - 3:05PM",
-                "instructor": "Rod MacDonald,"
+                "instructor": "Rod MacDonald"
             },
             {
                 "section": "0002-LEC",
                 "days": "MoWe",
                 "times": "3:25PM - 4:40PM",
-                "instructor": "Rod MacDonald,"
+                "instructor": "Rod MacDonald"
             },
             {
                 "section": "0003-LEC",
                 "days": "TuTh",
                 "times": "2:20PM - 3:35PM",
-                "instructor": "Jeff Tang,"
+                "instructor": "Jeff Tang"
             }
         ]
     },
@@ -7183,7 +6589,7 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "TuTh",
                 "times": "9:35AM - 10:50AM",
-                "instructor": "David McGraw,"
+                "instructor": "David McGraw"
             }
         ]
     },
