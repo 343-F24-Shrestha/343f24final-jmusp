@@ -379,19 +379,19 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "MoWeFr",
                 "times": "10:20AM - 11:10AM",
-                "instructor": "David Bernstein",
+                "instructor": "David Bernstein"
             },
             {
                 "section": "0002-LEC",
                 "days": "TuTh",
                 "times": "2:20PM - 3:35PM",
-                "instructor": "Isaac Wang",
+                "instructor": "Isaac Wang"
             },
             {
                 "section": "0003-LEC",
                 "days": "TuTh",
                 "times": "2:20PM - 3:35PM",
-                "instructor": "Kevin Molloy",
+                "instructor": "Kevin Molloy"
             }
         ]
     },
