@@ -127,30 +127,30 @@
             addDropdown();
             updateScheduleTable();
         });
-        
+    
         // Set to track already selected courses
         const selectedCoursesSet = new Set();
-        
+    
         function addDropdown() {
             const dropdownContainer = document.getElementById('dropdown-container');
-        
+    
             // Create form group for dropdown
             const formGroup = document.createElement('div');
             formGroup.classList.add('form-group');
-        
+
             const label = document.createElement('label');
             label.textContent = `Class ${dropdownContainer.children.length + 1}`;
             label.classList.add('form-label');
-        
+
             const select = document.createElement('select');
             select.classList.add('form-select');
-        
+
             // Add default "Select a class" option
             const defaultOption = document.createElement('option');
             defaultOption.value = '';
             defaultOption.textContent = 'Select a class';
             select.appendChild(defaultOption);
-        
+
             // Populate dropdown options with course-level data
             classData.forEach(course => {
                 const option = document.createElement('option');
@@ -158,17 +158,17 @@
                 option.textContent = `${course.course}: ${course.title}`;
                 select.appendChild(option);
             });
-        
+
             // Event listener for dropdown changes
             select.addEventListener('change', () => {
                 const previousValue = select.dataset.previousValue || '';
                 const currentValue = select.value;
-        
+
                 if (previousValue) {
                     // Remove the previous value from the selected set
                     selectedCoursesSet.delete(previousValue);
                 }
-        
+
                 if (currentValue) {
                     // Check if the new value is already in the set
                     if (selectedCoursesSet.has(currentValue)) {
@@ -183,29 +183,29 @@
                     // Clear the previous value if no course is selected
                     select.dataset.previousValue = '';
                 }
-        
+
                 // Check if all dropdowns are filled before adding a new one
                 if (allDropdownsFilled()) {
                     addDropdown();
                 }
             });
-        
+
             // Append label and dropdown to the form group
             formGroup.appendChild(label);
             formGroup.appendChild(select);
-        
+
             // Append form group to the container
             dropdownContainer.appendChild(formGroup);
         }
-        
+
         function allDropdownsFilled() {
             const selects = document.querySelectorAll('#dropdown-container select');
             return Array.from(selects).every(select => select.value !== '');
         }
-        
+
         document.getElementById('classForm').addEventListener('submit', function (e) {
             e.preventDefault();
-        
+
             // Get selected courses
             const selectedCourses = [];
             const selects = document.querySelectorAll('#dropdown-container select');
@@ -228,39 +228,41 @@
 
             // Generate schedule
             const schedule = generateSchedule(selectedCourses, preferredStartTime, preferredEndTime);
-        
+
             if (schedule) {
                 // Save selected schedule to localStorage
                 localStorage.setItem('schedule', JSON.stringify(schedule));
-        
+    
                 // Close the modal
                 const modalElement = document.getElementById('classModal');
                 const modal = bootstrap.Modal.getInstance(modalElement);
                 modal.hide();
-        
+    
                 // Update the schedule table
                 updateScheduleTable();
             } else {
                 alert('No valid schedule found for the selected courses.');
             }
         });
-        
+
         function updateScheduleTable() {
             const schedule = JSON.parse(localStorage.getItem('schedule'));
             const tableBody = document.getElementById('schedule-table-body');
             tableBody.innerHTML = '';
-        
+
             if (schedule) {
                 // Sort schedule by day and time
                 const sortedSchedule = sortSchedule(schedule);
                 sortedSchedule.forEach(entry => {
                     const outsideTimeNote = entry.outsidePreferredTime ? '<br><span class="outside-time-note">Outside preferred time range</span>' : '';
+                    const daysDisplay = entry.section.days === "TBA" ? "TBA" : entry.section.days;
+                    const timesDisplay = entry.section.times === "TBA" ? "TBA" : entry.section.times;
                     const row = `
                         <tr>
                             <td>${entry.course}</td>
                             <td>${entry.section.section}</td>
-                            <td>${entry.section.days}</td>
-                            <td>${entry.section.times}${outsideTimeNote}</td>
+                            <td>${daysDisplay}</td>
+                            <td>${timesDisplay}${outsideTimeNote}</td>
                             <td>${entry.section.instructor}</td>
                         </tr>
                     `;
@@ -272,11 +274,16 @@
         function sortSchedule(schedule) {
             const dayOrder = { 'Mo': 1, 'Tu': 2, 'We': 3, 'Th': 4, 'Fr': 5 };
             return schedule.slice().sort((a, b) => {
+                // Handle "TBA" entries to always appear last
+                if (a.section.days === "TBA") return 1;
+                if (b.section.days === "TBA") return -1;
+
                 // Compare by earliest day
                 const aDays = getEarliestDay(a.section.days);
                 const bDays = getEarliestDay(b.section.days);
                 const dayComparison = dayOrder[aDays] - dayOrder[bDays];
                 if (dayComparison !== 0) return dayComparison;
+
                 // If same day, compare by start time
                 const aTime = parseTime(a.section.times)[0];
                 const bTime = parseTime(b.section.times)[0];
@@ -285,38 +292,38 @@
         }
 
         function getEarliestDay(daysString) {
-            const dayCodes = ['Mo', 'Tu', 'We', 'Th', 'Fr'];
+            const dayCodes = ['Mo', 'We', 'Fr', 'Tu', 'Th'];
             for (const code of dayCodes) {
                 if (daysString.includes(code)) return code;
             }
             return 'Fr'; // Default to Friday if no match
         }
-        
+
         function generateSchedule(selectedCourses, preferredStartTime, preferredEndTime) {
             let schedules = [];
             const courseSections = selectedCourses.map(courseCode => {
                 return classData.find(course => course.course === courseCode);
             });
-        
+    
             function recurse(index, currentSchedule) {
                 if (index === courseSections.length) {
                     schedules.push([...currentSchedule]);
                     return true; // Found at least one valid schedule
                 }
-        
+    
                 const course = courseSections[index];
                 let sectionsWithinTime = [];
                 let sectionsOutsideTime = [];
-
+    
                 // Separate sections based on time preference
                 for (const section of course.sections) {
-                    if (isWithinPreferredTime(section, preferredStartTime, preferredEndTime)) {
+                    if (section.days === "TBA" || section.times === "TBA" || isWithinPreferredTime(section, preferredStartTime, preferredEndTime)) {
                         sectionsWithinTime.push(section);
                     } else {
                         sectionsOutsideTime.push(section);
                     }
                 }
-
+    
                 // Try sections within preferred time first
                 for (const section of sectionsWithinTime) {
                     if (!hasConflict(currentSchedule, section)) {
@@ -327,7 +334,7 @@
                         currentSchedule.pop();
                     }
                 }
-
+    
                 // If no valid schedule, try sections outside preferred time
                 for (const section of sectionsOutsideTime) {
                     if (!hasConflict(currentSchedule, section)) {
@@ -338,19 +345,20 @@
                         currentSchedule.pop();
                     }
                 }
-
+    
                 return false; // No valid section found for this course
             }
-        
+    
             const success = recurse(0, []);
             return success ? schedules[0] : null;
         }
-
+    
         function isWithinPreferredTime(section, preferredStartTime, preferredEndTime) {
+            if (section.times === "TBA") return true;
             const [start, end] = parseTime(section.times);
             return start >= preferredStartTime && end <= preferredEndTime;
         }
-        
+    
         function hasConflict(schedule, newSection) {
             for (const entry of schedule) {
                 if (sectionsOverlap(entry.section, newSection)) {
@@ -359,19 +367,20 @@
             }
             return false;
         }
-        
+    
         function sectionsOverlap(section1, section2) {
+            if (section1.days === "TBA" || section2.days === "TBA") return false;
             const days1 = splitDays(section1.days);
             const days2 = splitDays(section2.days);
             const daysOverlap = days1.some(day => days2.includes(day));
             if (!daysOverlap) return false;
-        
+    
             const [start1, end1] = parseTime(section1.times);
             const [start2, end2] = parseTime(section2.times);
-        
+    
             return (start1 < end2 && start2 < end1);
         }
-
+    
         function splitDays(daysString) {
             const regex = /(Mo|Tu|We|Th|Fr)/g;
             let match;
@@ -381,12 +390,12 @@
             }
             return days;
         }
-        
+    
         function parseTime(timeRange) {
             const [startTime, endTime] = timeRange.split(' - ');
             return [convertToMinutes(startTime), convertToMinutes(endTime)];
         }
-        
+    
         function convertToMinutes(timeStr) {
             const regex = /^(\d{1,2}):(\d{2})(AM|PM)$/;
             const match = timeStr.match(regex);
@@ -394,7 +403,7 @@
             let [_, hours, minutes, modifier] = match;
             hours = parseInt(hours);
             minutes = parseInt(minutes);
-        
+    
             if (modifier === 'PM' && hours !== 12) {
                 hours += 12;
             }
@@ -403,6 +412,6 @@
             }
             return hours * 60 + minutes;
         }
-    </script>
+    </script>    
 </body>
 </html>
