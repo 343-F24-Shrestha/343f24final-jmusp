@@ -3709,7 +3709,7 @@ const classData = [
                 "section": "0001-LEC",
                 "days": "MoWeFr",
                 "times": "10:20AM - 11:10AM",
-                "instructor": "Debali Mookerjea-Leonard,"
+                "instructor": "Debali Mookerjea-Leonard"
             }
         ]
     },
