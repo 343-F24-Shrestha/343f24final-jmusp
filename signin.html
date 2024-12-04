@@ -5,19 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/signin_style.css">
   <script>
     // Function to handle login or account creation
     function handleAuth(event) {
       event.preventDefault(); // Prevent form submission
-  
+
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
       const username = document.getElementById("username") ? document.getElementById("username").value : null; // Get username if present
       const action = document.getElementById("auth-action").textContent;
-  
+
       if (action === "Create Account") {
         // Ensure username is provided for account creation
         if (!username) {
@@ -29,10 +30,10 @@
         localStorage.setItem("password", password);
         localStorage.setItem("username", username);
         alert("Account created successfully!");
-  
+
         // After account creation, switch back to sign-in mode
         toggleAuthMode();
-  
+
         // Clear the email, password, and username fields after account creation
         document.getElementById("email").value = '';
         document.getElementById("password").value = '';
@@ -41,13 +42,13 @@
         // Check if there is no account created yet
         const savedEmail = localStorage.getItem("email");
         const savedPassword = localStorage.getItem("password");
-  
+
         if (!savedEmail || !savedPassword) {
           // If no saved account, prompt user to create an account
           alert("No account found. Please create an account first.");
         } else if (email === savedEmail && password === savedPassword) {
           alert("Login successful!");
-          
+
           // Redirect to the main home page after successful login
           window.location.href = "index.html"; // This will navigate to the home page
         } else {
@@ -55,14 +56,14 @@
         }
       }
     }
-  
+
     // Toggle between sign-in and create account modes
     function toggleAuthMode() {
       const actionText = document.getElementById("auth-action");
       const authButton = document.getElementById("auth-button");
       const switchText = document.getElementById("switch-text");
       const usernameField = document.getElementById("username-field");
-  
+
       if (actionText.textContent === "Sign In") {
         actionText.textContent = "Create Account";
         authButton.textContent = "Create Account";
@@ -77,7 +78,7 @@
     }
 
     // Pre-fill the sign-in form if there is a saved email and password
-    window.onload = function() {
+    window.onload = function () {
       const savedEmail = localStorage.getItem("email");
       const savedPassword = localStorage.getItem("password");
 
@@ -87,10 +88,27 @@
       if (savedPassword) {
         document.getElementById("password").value = savedPassword;
       }
-      
+
       // Ensure the correct mode (Sign In / Create Account) is initialized
       toggleAuthMode();
     }
+    window.onload = function () {
+      // Prefill the email field with data from localStorage
+      const preFillEmail = localStorage.getItem('preFillEmail');
+      if (preFillEmail) {
+        const emailInput = document.getElementById('email');
+        if (emailInput) {
+          emailInput.value = preFillEmail; // Set the email input value
+        }
+        localStorage.removeItem('preFillEmail'); // Clean up storage
+      }
+
+      // Check the query parameter for mode
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'create') {
+        toggleAuthMode(); // Switch to "Create Account" mode
+      }
+    };
   </script>
 </head>
 
@@ -118,7 +136,8 @@
         <p class="small">Note: This is merely a static demo page and not functional.</p>
       </div>
       <div class="text-center mt-3">
-        <a href="#" class="text-primary" id="switch-text" onclick="toggleAuthMode()">Don't have an account? Create one</a>
+        <a href="#" class="text-primary" id="switch-text" onclick="toggleAuthMode()">Don't have an account? Create
+          one</a>
       </div>
       <!-- Welcome button -->
       <div class="text-center mt-3">

@@ -59,10 +59,21 @@
                 <p class="intro-text">Get more done, faster. Build your ideal schedule to fit your student needs.</p>
                 <article class="intro_body">
                     <aside class="signup-preview">
-                        <input type="text" placeholder="Enter your information" class="form-control mb-3">
-                        <button class="btn btn-primary" type="button" onclick="window.location.href='signin.html'">Get
-                            Started</button>
+                        <input id="userInfo" type="text" placeholder="Enter your information" class="form-control mb-3">
+                        <button class="btn btn-primary" type="button" onclick="saveAndRedirect()">Get Started</button>
                     </aside>
+
+                    <script>
+                        function saveAndRedirect() {
+                            const userInfo = document.getElementById('userInfo').value.trim(); // Trim spaces
+                            if (userInfo) {
+                                localStorage.setItem('preFillEmail', userInfo); // Save the value in localStorage
+                                window.location.href = 'signin.html?mode=create'; // Redirect with a query parameter for "Create Account"
+                            } else {
+                                alert('Please enter your information!');
+                            }
+                        }
+                    </script>
                     <div class="google-signup d-flex align-items-center mt-3">
                         <img src="images/Logo-google-icon-PNG.png" alt="Google Icon" class="google-icon"
                             style="width: 30px;">
