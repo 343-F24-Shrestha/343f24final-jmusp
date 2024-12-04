@@ -466,12 +466,7 @@ document.getElementById('resetAllButton').addEventListener('click', () => {
 
 // Get reference to the file input and button
 const jsonFileInput = document.getElementById('jsonFileInput');
-const importJsonButton = document.getElementById('importJsonButton');
 
-// Event listener for the "Import from JSON" button
-importJsonButton.addEventListener('click', () => {
-    jsonFileInput.click(); // Trigger file input click
-});
 
 // Event listener for the file input change event
 jsonFileInput.addEventListener('change', function () {
