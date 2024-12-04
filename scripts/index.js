@@ -476,3 +476,61 @@ tableBody.innerHTML = '';
 
 alert('All data has been reset.');
 });
+
+// Get reference to the file input and button
+const jsonFileInput = document.getElementById('jsonFileInput');
+const importJsonButton = document.getElementById('importJsonButton');
+
+// Event listener for the "Import from JSON" button
+importJsonButton.addEventListener('click', () => {
+    jsonFileInput.click(); // Trigger file input click
+});
+
+// Event listener for the file input change event
+jsonFileInput.addEventListener('change', function () {
+    const file = jsonFileInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        try {
+            const data = JSON.parse(event.target.result);
+
+            // Validate the structure of the imported data
+            if (data.Schedule && data.Requirements) {
+                // Map data to internal format
+                const schedule = data.Schedule.map(entry => ({
+                    course: entry.Course,
+                    section: {
+                        section: entry.Section,
+                        days: entry.Days,
+                        times: entry.Times,
+                        instructor: entry.Instructor,
+                    },
+                    outsidePreferredTime: entry.OutsidePreferredTime || false,
+                }));
+                const requirements = {
+                    selectedCourses: data.Requirements.Classes || [],
+                    preferredStartTime: data.Requirements.StartTime || '',
+                    preferredEndTime: data.Requirements.EndTime || '',
+                };
+
+                // Save the imported data to localStorage
+                localStorage.setItem('schedule', JSON.stringify(schedule));
+                localStorage.setItem('requirements', JSON.stringify(requirements));
+
+                // Update the schedule and dropdowns
+                populateRequirements(requirements);
+                updateScheduleTable();
+
+                alert('Schedule successfully imported!');
+            } else {
+                alert('Invalid JSON structure. Please upload a valid schedule file.');
+            }
+        } catch (error) {
+            alert('Failed to parse the JSON file. Please ensure it is properly formatted.');
+        }
+    };
+
+    reader.readAsText(file); // Read the file as text
+});
