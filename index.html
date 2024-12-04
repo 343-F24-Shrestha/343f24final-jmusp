@@ -128,7 +128,10 @@
                             <label for="endTime" class="form-label">Preferred End Time (e.g., 6:00PM)</label>
                             <input type="text" id="endTime" class="form-control" placeholder="End Time">
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-secondary" id="resetButton">Reset</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -149,9 +152,9 @@
         // Set to track already selected courses
         const selectedCoursesSet = new Set();
     
-        function addDropdown() {
+        function addDropdown(preselectedValue = '') {
             const dropdownContainer = document.getElementById('dropdown-container');
-    
+
             // Create form group for dropdown
             const formGroup = document.createElement('div');
             formGroup.classList.add('form-group');
@@ -174,6 +177,9 @@
                 const option = document.createElement('option');
                 option.value = course.course; // Store course code as value
                 option.textContent = `${course.course}: ${course.title}`;
+                if (course.course === preselectedValue) {
+                    option.selected = true;
+                }
                 select.appendChild(option);
             });
 
@@ -183,23 +189,19 @@
                 const currentValue = select.value;
 
                 if (previousValue) {
-                    // Remove the previous value from the selected set
-                    selectedCoursesSet.delete(previousValue);
+                    selectedCoursesSet.delete(previousValue); // Remove previous value from set
                 }
 
                 if (currentValue) {
-                    // Check if the new value is already in the set
                     if (selectedCoursesSet.has(currentValue)) {
                         alert('You have already selected this course.');
                         select.value = ''; // Reset the dropdown value
                     } else {
-                        // Add the new value to the set
                         selectedCoursesSet.add(currentValue);
-                        select.dataset.previousValue = currentValue; // Update the stored value
+                        select.dataset.previousValue = currentValue; // Update stored value
                     }
                 } else {
-                    // Clear the previous value if no course is selected
-                    select.dataset.previousValue = '';
+                    select.dataset.previousValue = ''; // Clear previous value
                 }
 
                 // Check if all dropdowns are filled before adding a new one
@@ -463,6 +465,96 @@
                 hours = 0;
             }
             return hours * 60 + minutes;
+        }
+        document.getElementById('classForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get selected courses
+            const selectedCourses = [];
+            const selects = document.querySelectorAll('#dropdown-container select');
+            selects.forEach(select => {
+                if (select.value) {
+                    selectedCourses.push(select.value);
+                }
+            });
+
+            // Get time preferences
+            const startTimeInput = document.getElementById('startTime').value.trim() || '12:00AM';
+            const endTimeInput = document.getElementById('endTime').value.trim() || '11:59PM';
+
+            const requirements = {
+                selectedCourses,
+                preferredStartTime: startTimeInput,
+                preferredEndTime: endTimeInput,
+            };
+
+            // Save requirements to localStorage
+            localStorage.setItem('requirements', JSON.stringify(requirements));
+
+            // Generate schedule
+            const preferredStartTime = convertToMinutes(startTimeInput);
+            const preferredEndTime = convertToMinutes(endTimeInput);
+
+            if (preferredStartTime === null || preferredEndTime === null) {
+                alert('Please enter valid preferred times in the format HH:MMAM/PM.');
+                return;
+            }
+
+            const schedule = generateSchedule(selectedCourses, preferredStartTime, preferredEndTime);
+
+            if (schedule) {
+                // Save schedule to localStorage
+                localStorage.setItem('schedule', JSON.stringify(schedule));
+
+                // Close the modal
+                const modalElement = document.getElementById('classModal');
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                modal.hide();
+
+                // Update the schedule table
+                updateScheduleTable();
+            } else {
+                alert('No valid schedule found for the selected courses.');
+            }
+        });
+        document.getElementById('resetButton').addEventListener('click', () => {
+            // Clear localStorage
+            localStorage.removeItem('requirements');
+
+            // Reset form inputs
+            const dropdownContainer = document.getElementById('dropdown-container');
+            dropdownContainer.innerHTML = ''; // Clear all dropdowns
+            addDropdown(); // Add an initial empty dropdown
+
+            document.getElementById('startTime').value = '';
+            document.getElementById('endTime').value = '';
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load saved requirements if available
+            const savedRequirements = JSON.parse(localStorage.getItem('requirements'));
+            if (savedRequirements) {
+                populateRequirements(savedRequirements);
+            }
+
+            // Add the first dropdown on page load
+            addDropdown();
+            updateScheduleTable();
+        });
+
+        function populateRequirements(requirements) {
+            const { selectedCourses, preferredStartTime, preferredEndTime } = requirements;
+
+            // Populate dropdowns
+            const dropdownContainer = document.getElementById('dropdown-container');
+            dropdownContainer.innerHTML = ''; // Clear existing dropdowns
+
+            selectedCourses.forEach(course => {
+                addDropdown(course);
+            });
+
+            // Populate time preferences
+            document.getElementById('startTime').value = preferredStartTime || '';
+            document.getElementById('endTime').value = preferredEndTime || '';
         }
     </script>    
 </body>
