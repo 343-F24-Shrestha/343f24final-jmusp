@@ -1,7 +1,8 @@
+/* Base Styles */
 body {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    margin: 0;
+    background-color: #f8f9fa;
+
 }
 
 button, input, select, textarea {
@@ -138,7 +139,7 @@ button, input, select, textarea {
 }
 
 .google-btn:hover {
-    color: grey; 
+    color: grey;
 }
 
 .more-info {
@@ -202,4 +203,118 @@ button, input, select, textarea {
 
 .create-account-btn:hover {
     background-color: #6f42c1;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small screens (mobile phones) */
+@media (max-width: 600px) {
+    .intro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .intro-image {
+        margin-left: 0;
+        margin-top: 1rem;
+        max-width: 100%;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .more-info-content {
+        padding: 0 1rem;
+    }
+
+    .more-info-image {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .more-info-description {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .benefits-list {
+        font-size: 1rem;
+    }
+
+    .get-started-btn {
+        padding: 1rem 2rem;
+    }
+
+    .create-account-btn {
+        padding: 1rem 2rem;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+    }
+
+    .intro-image {
+        max-width: 100%;
+    }
+
+    .intro-text {
+        font-size: 1.125rem;
+        max-width: 90%;
+    }
+
+    .more-info-inner {
+        flex-direction: column;
+    }
+
+    .more-info-image {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .more-info-description {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .shell {
+        margin: 5% auto;
+        max-width: 1200px;
+    }
+
+    .intro-head h1 {
+        font-size: 3.5rem;
+    }
+
+    .get-started-btn {
+        font-size: 1.2rem;
+        padding: 1rem 3rem;
+    }
+
+    .create-account-btn {
+        font-size: 1.2rem;
+        padding: 1rem 3rem;
+    }
+}
+
+/* Additional Spacing Between Sections */
+.container {
+    margin-top: 5rem;
+}
+
+.more-info {
+    margin-top: 10rem;
+    padding: 5% 0;
+}
+
+/* For the Large Screens */
+@media (min-width: 1200px) {
+    .more-info {
+        margin-top: 12rem;
+    }
 }
