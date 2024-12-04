@@ -29,6 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
             eventElement.textContent = course;
             eventElement.style.top = calculateTopOffset(times) + 'px';
             eventElement.style.height = calculateHeight(times) + 'px';
+            eventElement.style.textAlign = "center";
+            eventElement.style.fontSize = "15px";
+            eventElement.style.fontWeight = "bold";
+            eventElement.style.lineHeight = calculateHeight(times)/1.1 + 'px';
   
             eventElement.addEventListener('click', () => {
               showModal(course, title, section.section, days, times, instructor);
@@ -80,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tbaClasses.forEach(entry => {
       const tbaItem = document.createElement('div');
       tbaItem.classList.add('event');
-      tbaItem.textContent = `${entry.course}: ${entry.title}`;
+      tbaItem.textContent = `${entry.course}`;
       tbaItem.style.width = "180px"; // Increased width
       tbaItem.style.backgroundColor = "#450084";
       tbaItem.style.color = "white";
@@ -89,6 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tbaItem.style.textAlign = "center";
       tbaItem.style.position = "absolute";
       tbaItem.style.left = `${currentLeftOffset}px`; // Apply horizontal placement
+      tbaItem.style.fontSize = "14px";
+      tbaItem.style.fontWeight = "bold";
       tbaItem.style.top = "0px"; // Align all items in a row
       tbaItem.style.boxSizing = "border-box"; // Ensure padding doesn't overflow
       tbaItem.style.cursor = "pointer";
