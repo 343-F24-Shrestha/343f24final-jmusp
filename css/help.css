@@ -1,6 +1,6 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem; /* Relative font size */
     margin: 0;
 }
 
@@ -10,50 +10,7 @@ button, input, select, textarea {
     box-shadow: none;
 }
 
-#navbar {
-    width: 100%;
-    height: 50px;
-    background-color: #450084;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.navbar-brand img {
-    margin: 0;
-    height: 30px;
-    width: auto;
-    display: block;
-}
-
-.navbar-text {
-    color: white;
-    padding: 0 0.5rem;
-    font-weight: bold;
-    margin-left: auto;
-}
-
-.navbar-nav .nav-item .nav-link {
-    color: white;
-    padding: 0 0.75rem;
-    font-weight: bold;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-    color: #ddd;
-}
-
-.navbar-nav .nav-item .nav-link.active {
-    color: #ffcc00;
-    font-weight: bold;
-}
-
 .btn-outline-light {
-    margin-left: 15px;
     color: white;
     border-color: white;
 }
@@ -68,26 +25,24 @@ button, input, select, textarea {
     display: flex;
     justify-content: center; 
     align-items: flex-start;
-    margin-top: 75px; 
-    margin-left: 250px;
-    font-size: 16px;
+    margin-top: 2vh; 
+    margin-left: 5vw;
+    font-size: 1rem;
     box-sizing: border-box; 
 }
 
 .container h2 {
-    font-size: 24px;
-    padding: 64px 0px 0px;
-
+    font-size: 2rem;
+    padding: 3vw 0 0;
 }
 
 .container h3 {
-    font-size: 18px;
-    padding: 32px 0px 0px;
-
+    font-size: 1.5rem;
+    padding: 1vw 0 0;
 }
 
 .container p {
-    font-size: 14px;
-    padding: 20px 0px 0px;
-    margin: 0px 0px 10px;
+    font-size: 1rem;
+    padding: 1vw 0 0;
+    margin: 0 0 1vw;
 }

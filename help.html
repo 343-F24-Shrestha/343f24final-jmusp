@@ -7,75 +7,108 @@
     <meta charset="utf-8">
     <meta name="description"
         content="Use the JMU Schedule Planner to seamlessly create the ideal schedule to fit your needs.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/help.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="images/jmu-wordmark-white.png" alt="JMU icon" class="navbar-icon">
+            <a class="navbar-brand text-white" href="index.html">
+                <img src="images/JMU-block-RGB-white.png" alt="JMU Logo" style="width: 100px" class="me-2">
+                Schedule Planner
             </a>
-            <span class="navbar-text mx-auto">JMU SCHEDULE PLANNER</span>
-
-            <!-- Navbar links for Home, Schedule Preview, and Help -->
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="schedulepreview.html">Schedule Preview</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="help.html">Help</a>
-                </li>
-            </ul>
-
-            <!-- Sign-in button -->
-            <a href="signin.html" class="btn btn-outline-light ms-auto">Sign in</a>
+            <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="schedulepreview.html">Schedule Preview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="welcome.html">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="signin.html">Sign In</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <main class="container">
         <article class="questions">
             <h2 class="header">How does the James Madison University Schedule Planner work?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas dolor a saepe sapiente sint officiis,
-                harum voluptates enim eius voluptatem fuga optio deleniti numquam quia atque non deserunt in quos!</p>
+            <p>Once signed in, the Home page is your starting point for customizing your class schedule. Here, you can
+                set your
+                schedule requirements, reset all entered data to start fresh, or import existing data from a JSON file.
+                These options
+                provide a streamlined way to tailor your schedule creation process to your specific needs.</p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <p>From the Home page you'll find the Professor's name and their corresponding rating from RateMyProfessor,
+                the days and times for the offerings, and the section numbers.
+            </p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut recusandae minus, suscipit consequuntur ipsa
-                provident officia incidunt maxime sint eveniet voluptatem laborum tempora quis commodi dolore soluta est
-                natus tenetur.</p>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>The Schedule Preview page gives you a comprehensive view of your generated schedule. Organized across the
+                days of the
+                week, it allows you to see how your selected classes fit into your overall timetable. This feature
+                ensures clarity and
+                helps you visualize your week at a glance, making it easy to plan your time effectively.</p>
 
             <h2 class="header">Will this automatically update my schedule on MyMadison?</h2>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, rem doloremque? Illo possimus tempora,
-                unde quisquam, quo in nostrum minima eius sed neque vel. Reiciendis amet excepturi quisquam optio animi!
+            <p>The JMU Schedule Planner doesn’t automatically update sections; students must manually input schedules
+                into MyMadison.
+                However, it streamlines schedule creation, offering quick, flexible, and customizable options for
+                planning and
+                reviewing.
             </p>
 
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam quia dicta dolor est odio qui nihil
-                dignissimos beatae, sapiente ipsam saepe similique, commodi omnis nemo placeat voluptatibus fuga
-                doloribus dolorem!
+            <p>You can navigate to MyMadison by clicking this <a href="https://mymadison.jmu.edu/"
+                    target="_blank">link</a> to update
+                your schedule.
             </p>
 
             <h3 class="lower-header">Commonly asked Questions:</h3>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium consectetur illo magni explicabo!
-                Voluptatum error aut numquam placeat rerum quod repellat unde autem natus reiciendis molestiae quidem,
-                sunt molestias quo?</p>
+            <p><strong>Do I need to sign in to use the planner? </strong></p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium consectetur illo magni explicabo!
-                Voluptatum error aut numquam placeat rerum quod repellat unde autem natus reiciendis molestiae quidem,
-                sunt molestias quo?</p>
+            <p>Unfortunately, you cannot use your MyMadison account to sign in, but you can sign in with Google or
+                create an account with us to access the site. A preview is available for those interested in viewing.
+            </p>
+            <p><strong>Is the planner updated with real-time class availability?</strong></p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium consectetur illo magni explicabo!
-                Voluptatum error aut numquam placeat rerum quod repellat unde autem natus reiciendis molestiae quidem,
-                sunt molestias quo?</p>
+            <p>Yes, the service is updated automatically using real time data on courses currently available at JMU,
+                making our program extremely accurate and highly adaptable.</p>
+
+            <p><strong>Can I save multiple schedule versions?</strong></p>
+
+            <p>Users can download their data to view independent of the site and clear their data on the site to start
+                again with a new schedule as needed.</p>
+
+            <p><strong>How does the system choose the best schedule for me?</strong></p>
+            <p>Our application takes the highest available Professor with a given combination of schedules in the time
+                frame asked for to create a schedule that suits the students needs. Factors considered are simply the
+                time, rating, and classes needed.</p>
+
+            <p><strong>How does the system choose the best schedule for me?</strong></p>
+            <p>Schedules can be edited as they are created.</p>
+
+            <p>Additional tools, such as automatic email alerts for class section availability, automating restrictions
+                like prerequisites, and increased ease of use are in the works. For questions pertaining to course
+                selections or availabilities themselves, see James Madison University's website or speak with an
+                advisor.</p>
         </article>
     </main>
 
