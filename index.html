@@ -91,6 +91,7 @@
                         <th>Days</th>
                         <th>Times</th>
                         <th>Instructor</th>
+                        <th>Rating</th>
                     </tr>
                 </thead>
                 <tbody id="schedule-table-body">
@@ -136,7 +137,8 @@
 
     <!-- Include Bootstrap JS and classes.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="classes.js"></script> <!-- Include the JS file with class data -->
+    <script src="classes.js"></script> <!-- JS file with class data -->
+    <script src="ratings.js"></script> <!-- JS file with rating data -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Add the first dropdown on page load
@@ -267,12 +269,21 @@
             tableBody.innerHTML = '';
 
             if (schedule) {
-                // Sort schedule by day and time
                 const sortedSchedule = sortSchedule(schedule);
+
                 sortedSchedule.forEach(entry => {
                     const outsideTimeNote = entry.outsidePreferredTime ? '<br><span class="outside-time-note">Outside preferred time range</span>' : '';
                     const daysDisplay = entry.section.days === "TBA" ? "TBA" : entry.section.days;
                     const timesDisplay = entry.section.times === "TBA" ? "TBA" : entry.section.times;
+
+                    // Find the rating data for the instructor
+                    const ratingInfo = ratingData.find(rating => rating.name === entry.section.instructor);
+                    const rating = ratingInfo ? ratingInfo.rating : "N/A";
+
+                    // Determine the background color based on the rating
+                    const ratingColor = getRatingColor(rating);
+
+                    // Add a new column for ratings
                     const row = `
                         <tr>
                             <td>${entry.course}</td>
@@ -280,11 +291,36 @@
                             <td>${daysDisplay}</td>
                             <td>${timesDisplay}${outsideTimeNote}</td>
                             <td>${entry.section.instructor}</td>
+                            <td style="background-color: ${ratingColor}; text-align: center;">
+                                ${rating !== "N/A" ? rating.toFixed(1) : "N/A"}
+                            </td>
                         </tr>
                     `;
                     tableBody.insertAdjacentHTML('beforeend', row);
                 });
             }
+        }
+
+        // color code based on rating
+        function getRatingColor(rating) {
+            if (rating === "N/A" || rating === 0) return "#f6f6f6"; // Neutral gray for N/A or no rating
+
+            // Define the base colors
+            const lowRatingColor = [255, 10, 0]; // Red for ratings below 2
+            const highRatingColor = [10, 220, 10];  // Green for ratings 2 and above
+
+            if (rating < 2) {
+                return `rgba(${lowRatingColor[0]}, ${lowRatingColor[1]}, ${lowRatingColor[2]}, 0.5)`; // Solid red for <2
+            }
+
+            // Normalize rating for the scale between 2 and 5
+            const normalizedRating = (Math.min(Math.max(rating, 2), 5) - 2) / 3; // Map 2-5 to 0-1
+
+            const r = Math.round(lowRatingColor[0] + (highRatingColor[0] - lowRatingColor[0]) * normalizedRating);
+            const g = Math.round(lowRatingColor[1] + (highRatingColor[1] - lowRatingColor[1]) * normalizedRating);
+            const b = Math.round(lowRatingColor[2] + (highRatingColor[2] - lowRatingColor[2]) * normalizedRating);
+
+            return `rgba(${r}, ${g}, ${b}, 0.5)`; // Pale gradient colors
         }
 
         function sortSchedule(schedule) {
