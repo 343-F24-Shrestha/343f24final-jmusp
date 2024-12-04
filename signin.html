@@ -8,6 +8,90 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/signin_style.css">
+  <script>
+    // Function to handle login or account creation
+    function handleAuth(event) {
+      event.preventDefault(); // Prevent form submission
+  
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const username = document.getElementById("username") ? document.getElementById("username").value : null; // Get username if present
+      const action = document.getElementById("auth-action").textContent;
+  
+      if (action === "Create Account") {
+        // Ensure username is provided for account creation
+        if (!username) {
+          alert("Please enter a username.");
+          return;
+        }
+        // Save email, password, and username to localStorage for account creation
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        localStorage.setItem("username", username);
+        alert("Account created successfully!");
+  
+        // After account creation, switch back to sign-in mode
+        toggleAuthMode();
+  
+        // Clear the email, password, and username fields after account creation
+        document.getElementById("email").value = '';
+        document.getElementById("password").value = '';
+        document.getElementById("username").value = '';
+      } else if (action === "Sign In") {
+        // Check if there is no account created yet
+        const savedEmail = localStorage.getItem("email");
+        const savedPassword = localStorage.getItem("password");
+  
+        if (!savedEmail || !savedPassword) {
+          // If no saved account, prompt user to create an account
+          alert("No account found. Please create an account first.");
+        } else if (email === savedEmail && password === savedPassword) {
+          alert("Login successful!");
+          
+          // Redirect to the main home page after successful login
+          window.location.href = "index.html"; // This will navigate to the home page
+        } else {
+          alert("Incorrect email or password.");
+        }
+      }
+    }
+  
+    // Toggle between sign-in and create account modes
+    function toggleAuthMode() {
+      const actionText = document.getElementById("auth-action");
+      const authButton = document.getElementById("auth-button");
+      const switchText = document.getElementById("switch-text");
+      const usernameField = document.getElementById("username-field");
+  
+      if (actionText.textContent === "Sign In") {
+        actionText.textContent = "Create Account";
+        authButton.textContent = "Create Account";
+        switchText.textContent = "Already have an account? Sign in";
+        usernameField.style.display = "block"; // Show username field when creating an account
+      } else {
+        actionText.textContent = "Sign In";
+        authButton.textContent = "Sign In";
+        switchText.textContent = "Don't have an account? Create one";
+        usernameField.style.display = "none"; // Hide username field when signing in
+      }
+    }
+
+    // Pre-fill the sign-in form if there is a saved email and password
+    window.onload = function() {
+      const savedEmail = localStorage.getItem("email");
+      const savedPassword = localStorage.getItem("password");
+
+      if (savedEmail) {
+        document.getElementById("email").value = savedEmail;
+      }
+      if (savedPassword) {
+        document.getElementById("password").value = savedPassword;
+      }
+      
+      // Ensure the correct mode (Sign In / Create Account) is initialized
+      toggleAuthMode();
+    }
+  </script>
 </head>
 
 <body class="bg-light">
@@ -15,29 +99,30 @@
     <div class="card p-4 shadow-sm" style="width: 360px;">
       <div class="text-center mb-4">
         <img src="images/JMULogo.png" alt="JMU Logo" class="mb-3" style="width: 150px;">
-        <h5 class="mb-3">Sign in</h5>
+        <h5 class="mb-3" id="auth-action">Sign in</h5>
         <p class="text-muted">with JMU Schedule Planner account</p>
       </div>
-      <form action="index.html" method="get">
+      <form onsubmit="handleAuth(event)">
         <div class="form-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" required>
+          <input type="email" id="email" class="form-control" placeholder="Email" required>
         </div>
-        <div class="text-end mb-3">
-          <a href="#" class="small text-primary">Forgot email?</a>
+        <div id="username-field" class="form-group mb-3" style="display: none;">
+          <input type="text" id="username" class="form-control" placeholder="Username">
         </div>
         <div class="form-group mb-4">
-          <input type="password" class="form-control" placeholder="Enter your password" required>
+          <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
         </div>
-        <div class="text-end mb-4">
-          <a href="#" class="small text-primary">Forgot password?</a>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+        <button type="submit" id="auth-button" class="btn btn-primary w-100">Sign In</button>
       </form>
       <div class="text-center mt-4">
-        <p class="small">Note: This is merely static a demo page and not functional.</p>
+        <p class="small">Note: This is merely a static demo page and not functional.</p>
       </div>
       <div class="text-center mt-3">
-        <a href="#" class="text-primary">Don't have an account?</a>
+        <a href="#" class="text-primary" id="switch-text" onclick="toggleAuthMode()">Don't have an account? Create one</a>
+      </div>
+      <!-- Welcome button -->
+      <div class="text-center mt-3">
+        <a href="welcome.html" class="btn btn-secondary w-100">Back to Welcome Page</a>
       </div>
     </div>
   </div>
