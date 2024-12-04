@@ -376,6 +376,7 @@
         localStorage.removeItem('requirements');
         const dropdownContainer = document.getElementById('dropdown-container');
         dropdownContainer.innerHTML = ''; // Clear all dropdowns
+        selectedCoursesSet.clear(); // Clear the selected courses set
         addDropdown(); // Add a single dropdown as default
         document.getElementById('startTime').value = '';
         document.getElementById('endTime').value = '';
