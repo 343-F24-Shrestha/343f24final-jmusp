@@ -122,11 +122,11 @@
                         </div>
                         <!-- Time Preferences -->
                         <div class="form-group">
-                            <label for="startTime" class="form-label">Preferred Start Time (e.g., 8:00AM)</label>
+                            <label for="startTime" class="form-label">Preferred Start Time (e.g. 8:00AM)</label>
                             <input type="text" id="startTime" class="form-control" placeholder="Start Time">
                         </div>
                         <div class="form-group">
-                            <label for="endTime" class="form-label">Preferred End Time (e.g., 6:00PM)</label>
+                            <label for="endTime" class="form-label">Preferred End Time (e.g. 6:00PM)</label>
                             <input type="text" id="endTime" class="form-control" placeholder="End Time">
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
@@ -530,6 +530,13 @@
                 addDropdown(); // Add one dropdown if no saved requirements
             }
             updateScheduleTable();
+        });
+
+        document.querySelector('[data-bs-target="#classModal"]').addEventListener('click', () => {
+            const dropdownContainer = document.getElementById('dropdown-container');
+            if (!dropdownContainer.children.length) {
+                addDropdown(); // Ensure at least one dropdown exists
+            }
         });
 
         function populateRequirements(requirements) {
