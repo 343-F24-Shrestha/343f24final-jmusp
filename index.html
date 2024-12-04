@@ -103,6 +103,7 @@
     <!-- Set Requirements Button -->
     <div class="text-center mt-4">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classModal">Set Requirements</button>
+        <button class="btn btn-secondary" id="downloadDataButton">Download Data</button>
     </div>
 
     <!-- Modal -->
@@ -143,11 +144,6 @@
     <script src="classes.js"></script> <!-- JS file with class data -->
     <script src="ratings.js"></script> <!-- JS file with rating data -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add the first dropdown on page load
-            addDropdown();
-            updateScheduleTable();
-        });
     
         // Set to track already selected courses
         const selectedCoursesSet = new Set();
@@ -518,26 +514,21 @@
             }
         });
         document.getElementById('resetButton').addEventListener('click', () => {
-            // Clear localStorage
             localStorage.removeItem('requirements');
-
-            // Reset form inputs
             const dropdownContainer = document.getElementById('dropdown-container');
             dropdownContainer.innerHTML = ''; // Clear all dropdowns
-            addDropdown(); // Add an initial empty dropdown
-
+            addDropdown(); // Add a single dropdown as default
             document.getElementById('startTime').value = '';
             document.getElementById('endTime').value = '';
         });
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Load saved requirements if available
             const savedRequirements = JSON.parse(localStorage.getItem('requirements'));
             if (savedRequirements) {
                 populateRequirements(savedRequirements);
+            } else {
+                addDropdown(); // Add one dropdown if no saved requirements
             }
-
-            // Add the first dropdown on page load
-            addDropdown();
             updateScheduleTable();
         });
 
@@ -556,6 +547,49 @@
             document.getElementById('startTime').value = preferredStartTime || '';
             document.getElementById('endTime').value = preferredEndTime || '';
         }
+
+        document.getElementById('downloadDataButton').addEventListener('click', function () {
+            const schedule = JSON.parse(localStorage.getItem('schedule')) || [];
+            const requirements = JSON.parse(localStorage.getItem('requirements')) || { startTime: '', endTime: '', classes: [] };
+
+            // Prepare data structure
+            const exportData = {
+                Schedule: schedule.map(entry => ({
+                    Course: entry.course,
+                    Section: entry.section.section,
+                    Days: entry.section.days,
+                    Times: entry.section.times,
+                    Instructor: entry.section.instructor,
+                    OutsidePreferredTime: entry.outsidePreferredTime || false,
+                })),
+                Requirements: {
+                    StartTime: requirements.preferredStartTime || 'Not Set',
+                    EndTime: requirements.preferredEndTime || 'Not Set',
+                    Classes: requirements.selectedCourses || [],
+                },
+            };
+
+            // Convert data to JSON string
+            const dataStr = JSON.stringify(exportData, null, 2);
+
+            // Create a Blob for download
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            // Create a temporary download link
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'schedule_data.json';
+            a.style.display = 'none';
+
+            // Append to the document and trigger download
+            document.body.appendChild(a);
+            a.click();
+
+            // Cleanup
+            URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        });
     </script>    
 </body>
 </html>
