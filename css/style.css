@@ -1,0 +1,40 @@
+header {
+    height: 10vh;
+    background-color: #450084;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Styling for notes in the schedule table */
+.outside-time-note {
+    color: red;
+    font-size: 0.9em;
+}
+
+.modal-dialog {
+    max-width: 700px;
+}
+
+/* Truncate long class names in dropdown menu */
+.form-select option {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.form-select {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.lowered-button {
+    margin-top: 7px;
+}
